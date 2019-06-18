@@ -23,11 +23,11 @@ class App extends Component {
             <a href='https://github.com/jtroshynski'><img className='logo' src={github} alt="Github" /></a>
             <a href='https://www.linkedin.com/in/jeremytroshynski/'><img className='logo' src={linkedin} alt="LinkedIn" /></a>
           </div>
-          <div className='navigation-container'>
+          {/* <div className='navigation-container'>
             <a href='#technologies' className='navigation-link'>Technologies</a>
             <a href='#projects' className='navigation-link'>Projects</a>
             <a href='#resume' className='navigation-link'>Resume</a>
-          </div>
+          </div> */}
         </header>
         <div className='technologies'>
 

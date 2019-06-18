@@ -46,7 +46,7 @@ body, html {
   padding:.5em;
   display: inline-block;
   font-size: calc(6px + 2vmin);
-  color: white;
+  color: #999999;
 }
 
 .App-intro {
@@ -73,6 +73,7 @@ h2 {
 
 .intro2 {
   color: #999999;
+  margin-bottom: 10px;
   -webkit-animation: delayFadein 3s; /* Safari, Chrome and Opera > 12.1 */
   -moz-animation: delayFadein 3s; /* Firefox < 16 */
   -ms-animation: delayFadein 3s; /* Internet Explorer */
