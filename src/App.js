@@ -11,15 +11,33 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={me} className="picture-of-me" alt="Jeremy" />
-          <p>
-            Hi, my name is Jeremy Troshynski. I've been a software developer for two years. <br />
-            Click the links below to see what I've been working on.
-          </p>
+          <div className='App-intro'>
+            <h1 className='intro1'>
+              Hi, my name is Jeremy Troshynski.
+            </h1>
+            <h1 className='intro2'>
+            I'm a journeyman software developer.
+            </h1>
+          </div>
           <div className='logo-container'>
             <a href='https://github.com/jtroshynski'><img className='logo' src={github} alt="Github" /></a>
             <a href='https://www.linkedin.com/in/jeremytroshynski/'><img className='logo' src={linkedin} alt="LinkedIn" /></a>
           </div>
+          <div className='navigation-container'>
+            <a href='#technologies' className='navigation-link'>Technologies</a>
+            <a href='#projects' className='navigation-link'>Projects</a>
+            <a href='#resume' className='navigation-link'>Resume</a>
+          </div>
         </header>
+        <div className='technologies'>
+
+        </div>
+        <div className='projects'>
+
+        </div>
+        <div className='resume'>
+
+        </div>
       </div>
     );
   }
