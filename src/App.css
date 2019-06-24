@@ -12,7 +12,8 @@ body, html {
 }
 
 .App-header {
-  background-color: #202020;
+  /* background-color: #202020; */
+  background-color: #FFFFFF;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -46,7 +47,7 @@ body, html {
   padding:.5em;
   display: inline-block;
   font-size: calc(6px + 2vmin);
-  color: #999999;
+  color: #777777;
 }
 
 .App-intro {
@@ -78,6 +79,26 @@ h2 {
   -moz-animation: delayFadein 3s; /* Firefox < 16 */
   -ms-animation: delayFadein 3s; /* Internet Explorer */
   animation: delayFadein 3s;
+}
+
+.technologies {
+  margin-top: 60px;
+  font-family: Calibri;
+  font-size: calc(8px + 2vmin);
+}
+
+.technology-card-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 40px;
+
+}
+
+.technology-card {
+  display: inline-block;
+  padding: 10px;
 }
 
 @keyframes fadein {
