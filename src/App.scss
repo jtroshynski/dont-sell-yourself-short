@@ -79,23 +79,20 @@ body, html {
 
   
   .technologies {
-    margin-top: 60px;
+    margin-top: 20vh;
+    margin-bottom: 20vh;
     font-family: Calibri;
     font-size: calc(8px + 2vmin);
-    max-width: 70%;
+    max-width: 70vw;
     margin-left: auto;
     margin-right: auto;
+
   
     .technology-card-row {
         display: flex;
         flex-direction: row;
-        align-items: center;
         justify-content: space-evenly;
-        padding-bottom: 40px;
-    
-        .technology-card {
-            display: inline-block;
-          }
+        padding-bottom: 10vh;
       }
   }
   
