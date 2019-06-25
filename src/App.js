@@ -29,7 +29,7 @@ class App extends Component {
             <a href='#resume' className='navigation-link'>Resume</a>
           </div>
         </header>
-        <div className='technologies'>
+        <div id='technologies' className='technologies'>
           <div className='technology-card-row'>
             <div className='technology-card'>
               <i className="fab fa-react fa-3x"></i>
@@ -47,6 +47,10 @@ class App extends Component {
               <i className="fab fa-css3-alt fa-3x"></i>
               <div>CSS</div>
             </div>
+            <div className='technology-card'>
+              <i className="fab fa-sass fa-3x"></i>
+              <div>Sass</div>
+            </div>
           </div>
           <div className='technology-card-row'>
             <div className='technology-card'>
@@ -62,17 +66,16 @@ class App extends Component {
               <div>Git</div>
             </div>
           </div>
-
             {/* 
               Languages - C#, Javascript, React, HTML/CSS, Java, SQL
               Skills - Full Stack Development, Web Services, Unit Tests, Communication, Creativity
               Software - Visual Studio, VS Code, Azure DevOps, Git, Github, MS-SQL
            */}
         </div>
-        <div className='projects'>
+        <div id='projects' className='projects'>
 
         </div>
-        <div className='resume'>
+        <div id='resume' className='resume'>
 
         </div>
       </div>
