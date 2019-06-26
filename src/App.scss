@@ -31,6 +31,10 @@ body, html {
             display: inline-block;
             height: 2em;
             width: 2em;
+            transition: transform .4s;
+          }
+          .logo:hover {
+              transform: scale(1.2);
           }
       }
       
@@ -93,6 +97,17 @@ body, html {
         flex-direction: row;
         justify-content: space-evenly;
         padding-bottom: 10vh;
+        .technology-card {
+            transition: transform .4s;
+
+            a {
+                color: inherit;
+                text-decoration: none;
+            }
+        }
+        .technology-card:hover {
+            transform: scale(1.4);
+        }
       }
   }
   
