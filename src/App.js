@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import me from './images/hexJeremy2.png'
 import github from './images/GitHub-Mark/PNG/GitHub-Mark-64px.png'
 import linkedin from './images/LinkedIn-Logos/In/Digital/Blue/2x/In-Blue-40@2x.png'
+import Fade from 'react-reveal/Fade';
 
 import './App.css';
 
@@ -20,12 +21,13 @@ class App extends Component {
             </h1>
           </div>
         </header>
-
+        <Fade right cascade>
         <div className='navigation-container'>
             <a href='#technologies' className='navigation-link'>Technologies</a>
             {/* <a href='#projects' className='navigation-link'>Projects</a> */}
             <a href='#resume' className='navigation-link'>Resume</a>
           </div>
+          </Fade>
         <div id='technologies' className='technologies'>
           <div className='technology-card-row'>
             <div className='technology-card'>
