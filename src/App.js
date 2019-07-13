@@ -13,22 +13,19 @@ class App extends Component {
           <img src={me} className="picture-of-me" alt="Jeremy" />
           <div className='App-intro'>
             <h1 className='intro1'>
-              Hi, my name is Jeremy Troshynski.
+            Jeremy Troshynski
             </h1>
             <h1 className='intro2'>
-            I'm a journeyman software developer.
+            Journeyman full stack developer
             </h1>
           </div>
-          <div className='logo-container'>
-            <a href='https://github.com/jtroshynski'><img className='logo' src={github} alt="Github" /></a>
-            <a href='https://www.linkedin.com/in/jeremytroshynski/'><img className='logo' src={linkedin} alt="LinkedIn" /></a>
-          </div>
-          <div className='navigation-container'>
+        </header>
+
+        <div className='navigation-container'>
             <a href='#technologies' className='navigation-link'>Technologies</a>
-            <a href='#projects' className='navigation-link'>Projects</a>
+            {/* <a href='#projects' className='navigation-link'>Projects</a> */}
             <a href='#resume' className='navigation-link'>Resume</a>
           </div>
-        </header>
         <div id='technologies' className='technologies'>
           <div className='technology-card-row'>
             <div className='technology-card'>
@@ -76,7 +73,13 @@ class App extends Component {
 
         </div>
         <div id='resume' className='resume'>
-
+        <iframe src="https://docs.google.com/document/d/e/2PACX-1vRnUGNSrpAIKEPNn3w3Rea_r9SLjIQV9RYvxR7vU6LPfdPigQhp7u1jVM6Dt1KgLDB4iWDvmp0FqFy0/pub?embedded=true" width="700"></iframe>        
+        </div>
+        <div id='contactme' className='contactme'>
+        <div className='logo-container'>
+            <a href='https://github.com/jtroshynski'><img className='logo' src={github} alt="Github" /></a>
+            <a href='https://www.linkedin.com/in/jeremytroshynski/'><img className='logo' src={linkedin} alt="LinkedIn" /></a>
+          </div>
         </div>
       </div>
     );

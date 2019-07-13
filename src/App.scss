@@ -15,45 +15,34 @@ body, html {
     /* background-color: #202020; */
     background-color: #FFFFFF;
     min-height: 100vh;
+    width: 80%;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
-    margin: auto;
+    align-items: left;
+    justify-content: left;
+    margin-left: 20vw;
+    margin-top: 10vh;
 
-    .logo-container {
-        display: flex;
-        text-align: center;
-        .logo {
-            padding:.5em;
-            display: inline-block;
-            height: 2em;
-            width: 2em;
-            transition: transform .4s;
-          }
-          .logo:hover {
-              transform: scale(1.2);
-          }
-      }
-      
-      .navigation-container {
-        display: flex;
-        text-align: center;
-        .navigation-link {
-            padding:.5em;
-            display: inline-block;
-            font-size: calc(6px + 2vmin);
-            color: #777777;
-          }
-      }
+    img {
+      display: block;
+      width: 30%;
+      height: auto;
+      justify-content: center;
+      -webkit-animation: fadein 3s; /* Safari, Chrome and Opera > 12.1 */
+      -moz-animation: fadein 3s; /* Firefox < 16 */
+      -ms-animation: fadein 3s; /* Internet Explorer */
+      animation: fadein 3s;
+    }
       
       .App-intro {
         padding: 0;
         margin: 0;
+        text-align: left;
+        width: 80%;
         .intro1 {
-            color: #307351;
+            color: #307390;
+            font-size: calc(38px + 4vmin);
+            font-family: 'Cabin', sans-serif;
             -webkit-animation: fadein 3s; /* Safari, Chrome and Opera > 12.1 */
             -moz-animation: fadein 3s; /* Firefox < 16 */
             -ms-animation: fadein 3s; /* Internet Explorer */
@@ -61,13 +50,42 @@ body, html {
           }
           
           .intro2 {
-            color: #999999;
+            color: #444444;
+            font-size: calc(20px + 2vmin);
+            font-family: 'Nunito Sans', sans-serif;
             margin-bottom: 10px;
+            margin-top: 5px;
             -webkit-animation: delayFadein 3s; /* Safari, Chrome and Opera > 12.1 */
             -moz-animation: delayFadein 3s; /* Firefox < 16 */
             -ms-animation: delayFadein 3s; /* Internet Explorer */
             animation: delayFadein 3s;
           }
+      }
+  }
+
+  .logo-container {
+    display: flex;
+    text-align: center;
+    .logo {
+        padding:.5em;
+        display: inline-block;
+        height: 2em;
+        width: 2em;
+        transition: transform .4s;
+      }
+      .logo:hover {
+          transform: scale(1.2);
+      }
+  }
+  
+  .navigation-container {
+    display: flex;
+    text-align: center;
+    .navigation-link {
+        padding:.5em;
+        display: inline-block;
+        font-size: calc(6px + 2vmin);
+        color: #444444;
       }
   }
   
@@ -109,6 +127,15 @@ body, html {
             transform: scale(1.4);
         }
       }
+  }
+
+  .resume {
+    height: 100vh;
+    text-align: center;
+    iframe {
+      max-width: 80%;
+      height: 80%;
+    }
   }
   
   @keyframes fadein {
