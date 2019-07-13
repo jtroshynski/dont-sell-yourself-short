@@ -44,11 +44,14 @@ class App extends Component {
           <Fade right cascade>
             <div className="section-title">Resume</div>
           </Fade>
-          <iframe
-            src="https://docs.google.com/document/d/e/2PACX-1vRnUGNSrpAIKEPNn3w3Rea_r9SLjIQV9RYvxR7vU6LPfdPigQhp7u1jVM6Dt1KgLDB4iWDvmp0FqFy0/pub?embedded=true"
-            width="700"
-            frameborder="0"
-          />
+          <div className="resume-box">
+            <iframe
+              src="https://docs.google.com/document/d/e/2PACX-1vRnUGNSrpAIKEPNn3w3Rea_r9SLjIQV9RYvxR7vU6LPfdPigQhp7u1jVM6Dt1KgLDB4iWDvmp0FqFy0/pub?embedded=true"
+              title="resume-iframe"
+              width="700"
+              frameBorder="0"
+            />
+          </div>
         </div>
         <Fade right cascade>
           <div className="content-divider" />

@@ -1,35 +1,52 @@
 body,
 html {
   height: 100%;
+  width: 100%;
   margin: 0;
   padding: 0;
   scroll-behavior: smooth;
 }
 
 .App {
+  display: inline-block;
   margin: auto;
   width: 80%;
-  margin-left: 20vw;
+  margin-left: 10vw;
   font-family: "Nunito Sans", sans-serif;
 }
+@media screen and (min-width: 768px) {
+  .App {
+    margin-left: 20vw;
+  }
+}
 .App .section-title {
-  font-size: calc(38px + 4vmin);
+  font-size: 10vw;
   color: #444444;
+}
+@media screen and (min-width: 768px) {
+  .App .section-title {
+    font-size: 5vw;
+  }
 }
 
 .App-header {
   align-items: left;
   justify-content: left;
-  min-height: 100vh;
+  height: auto;
+  margin-top: 4vh;
   display: flex;
   flex-direction: column;
-  margin-top: 10vh;
+}
+@media screen and (min-width: 768px) {
+  .App-header {
+    height: 100vh;
+    margin-top: 10vh;
+  }
 }
 .App-header img {
   display: block;
-  width: 30%;
+  width: 50vw;
   height: auto;
-  justify-content: center;
   -webkit-animation: fadein 3s;
   /* Safari, Chrome and Opera > 12.1 */
   -moz-animation: fadein 3s;
@@ -38,15 +55,26 @@ html {
   /* Internet Explorer */
   animation: fadein 3s;
 }
+@media screen and (min-width: 768px) {
+  .App-header img {
+    width: 24vw;
+  }
+}
 .App-header .App-intro {
   padding: 0;
   margin: 0;
   text-align: left;
   width: 80%;
+  margin-bottom: 5vh;
+}
+@media screen and (min-width: 768px) {
+  .App-header .App-intro {
+    margin-bottom: 20vh;
+  }
 }
 .App-header .App-intro .intro1 {
   color: #307390;
-  font-size: calc(56px + 4vmin);
+  font-size: 9vw;
   font-family: "Cabin", sans-serif;
   -webkit-animation: fadein 3s;
   /* Safari, Chrome and Opera > 12.1 */
@@ -56,10 +84,14 @@ html {
   /* Internet Explorer */
   animation: fadein 3s;
 }
+@media screen and (min-width: 768px) {
+  .App-header .App-intro .intro1 {
+    font-size: 6.5vw;
+  }
+}
 .App-header .App-intro .intro2 {
   color: #444444;
-  font-size: calc(20px + 2vmin);
-  margin-bottom: 10px;
+  font-size: 4vw;
   margin-top: 5px;
   -webkit-animation: delayFadein 3s;
   /* Safari, Chrome and Opera > 12.1 */
@@ -69,17 +101,22 @@ html {
   /* Internet Explorer */
   animation: delayFadein 3s;
 }
+@media screen and (min-width: 768px) {
+  .App-header .App-intro .intro2 {
+    font-size: 2.6vw;
+  }
+}
 
 .content-divider {
-  display: flex;
-  text-align: left;
   margin: auto;
   width: 100%;
   background-color: #333333;
-  height: 40px;
-  flex-direction: row;
-  align-items: left;
-  justify-content: left;
+  height: 20px;
+}
+@media screen and (min-width: 768px) {
+  .content-divider {
+    height: 40px;
+  }
 }
 
 h1 {
@@ -91,14 +128,24 @@ h2 {
 }
 
 .technologies {
-  margin-bottom: 20vh;
+  margin-bottom: 5vh;
+}
+@media screen and (min-width: 768px) {
+  .technologies {
+    margin-bottom: 20vh;
+  }
 }
 .technologies ul {
   columns: 2;
   margin: 0.75em 0;
   padding: 0 3em;
   list-style: none;
-  font-size: calc(20px + 2vmin);
+  font-size: 5vw;
+}
+@media screen and (min-width: 768px) {
+  .technologies ul {
+    font-size: 2.5vw;
+  }
 }
 .technologies ul li::before {
   content: "";
@@ -114,30 +161,59 @@ h2 {
 }
 
 .resume {
-  height: 100vh;
-  margin-bottom: 20vh;
+  margin-bottom: 10vh;
 }
-.resume iframe {
-  max-width: 80%;
-  height: 90%;
+@media screen and (min-width: 768px) {
+  .resume {
+    margin-bottom: 20vh;
+  }
+}
+.resume .resume-box {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 35px;
+  height: 0;
+  overflow: hidden;
+}
+.resume .resume-box iframe {
+  width: 70vw;
+  height: 60vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+@media screen and (min-width: 768px) {
+  .resume .resume-box iframe {
+    height: 90vh;
+  }
 }
 
 .contactme {
-  height: 70vh;
+  height: 30vh;
+}
+@media screen and (min-width: 768px) {
+  .contactme {
+    height: 70vh;
+  }
 }
 .contactme .logo-container {
   display: flex;
   text-align: center;
-  padding-top: 5em;
-  padding: 2em;
+  padding: 2vw;
 }
 .contactme .logo-container .logo {
-  margin: 0.75em 0;
-  padding: 2em;
+  padding: 2vw;
   display: inline-block;
-  height: 4em;
-  width: 4em;
+  height: 8vh;
+  width: auto;
   transition: transform 0.4s;
+}
+@media screen and (min-width: 768px) {
+  .contactme .logo-container .logo {
+    height: 12vh;
+  }
 }
 .contactme .logo-container .logo:hover {
   transform: scale(1.2);
