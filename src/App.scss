@@ -1,197 +1,232 @@
+body,
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
 
-body, html {
-    height: 100%;
-    margin: 0;
+.App {
+  margin: auto;
+  width: 80%;
+  margin-left: 20vw;
+  font-family: "Nunito Sans", sans-serif;
+  .section-title {
+    font-size: calc(38px + 4vmin);
+    color: #444444;
+  }
+}
+
+.App-header {
+  align-items: left;
+  justify-content: left;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin-top: 10vh;
+
+  img {
+    display: block;
+    width: 30%;
+    height: auto;
+    justify-content: center;
+    -webkit-animation: fadein 3s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadein 3s; /* Firefox < 16 */
+    -ms-animation: fadein 3s; /* Internet Explorer */
+    animation: fadein 3s;
+  }
+
+  .App-intro {
     padding: 0;
-    scroll-behavior: smooth;
-  }
-  
-  .App {
-
-    margin: auto;
+    margin: 0;
+    text-align: left;
     width: 80%;
-    margin-left: 20vw;
-    font-family: 'Nunito Sans', sans-serif;
-  }
-  
-  .App-header {
-    align-items: left;
-    justify-content: left;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    margin-top: 10vh;
-
-    img {
-      display: block;
-      width: 30%;
-      height: auto;
-      justify-content: center;
+    .intro1 {
+      color: #307390;
+      font-size: calc(56px + 4vmin);
+      font-family: "Cabin", sans-serif;
       -webkit-animation: fadein 3s; /* Safari, Chrome and Opera > 12.1 */
       -moz-animation: fadein 3s; /* Firefox < 16 */
       -ms-animation: fadein 3s; /* Internet Explorer */
       animation: fadein 3s;
     }
-      
-      .App-intro {
-        padding: 0;
-        margin: 0;
-        text-align: left;
-        width: 80%;
-        .intro1 {
-            color: #307390;
-            font-size: calc(38px + 4vmin);
-            font-family: 'Cabin', sans-serif;
-            -webkit-animation: fadein 3s; /* Safari, Chrome and Opera > 12.1 */
-            -moz-animation: fadein 3s; /* Firefox < 16 */
-            -ms-animation: fadein 3s; /* Internet Explorer */
-            animation: fadein 3s;
-          }
-          
-          .intro2 {
-            color: #444444;
-            font-size: calc(20px + 2vmin);
-            font-family: 'Nunito Sans', sans-serif;
-            margin-bottom: 10px;
-            margin-top: 5px;
-            -webkit-animation: delayFadein 3s; /* Safari, Chrome and Opera > 12.1 */
-            -moz-animation: delayFadein 3s; /* Firefox < 16 */
-            -ms-animation: delayFadein 3s; /* Internet Explorer */
-            animation: delayFadein 3s;
-          }
-      }
-  }
 
+    .intro2 {
+      color: #444444;
+      font-size: calc(20px + 2vmin);
+      margin-bottom: 10px;
+      margin-top: 5px;
+      -webkit-animation: delayFadein 3s; /* Safari, Chrome and Opera > 12.1 */
+      -moz-animation: delayFadein 3s; /* Firefox < 16 */
+      -ms-animation: delayFadein 3s; /* Internet Explorer */
+      animation: delayFadein 3s;
+    }
+  }
+}
+
+.content-divider {
+  display: flex;
+  text-align: left;
+  margin: auto;
+  width: 100%;
+  background-color: #333333;
+  height: 40px;
+
+  flex-direction: row;
+  align-items: left;
+  justify-content: left;
+}
+
+h1 {
+  margin: 0;
+}
+
+h2 {
+  margin: 1;
+}
+
+.technologies {
+  margin-bottom: 20vh;
+
+  ul {
+    columns: 2;
+    margin: 0.75em 0;
+    padding: 0 3em;
+    list-style: none;
+    font-size: calc(20px + 2vmin);
+
+    li::before {
+      content: "";
+      border-color: transparent #307390;
+      border-style: solid;
+      border-width: 0.35em 0 0.35em 0.45em;
+      display: block;
+      height: 0;
+      width: 0;
+      left: -1em;
+      top: 0.9em;
+      position: relative;
+    }
+  }
+}
+
+.resume {
+  height: 100vh;
+  margin-bottom: 20vh;
+  iframe {
+    max-width: 80%;
+    height: 90%;
+  }
+}
+
+.contactme {
+  height: 70vh;
   .logo-container {
     display: flex;
     text-align: center;
+    padding-top: 5em;
+    padding: 2em;
+
     .logo {
-        padding:.5em;
-        display: inline-block;
-        height: 2em;
-        width: 2em;
-        transition: transform .4s;
-      }
-      .logo:hover {
-          transform: scale(1.2);
-      }
-  }
-  
-  .navigation-container {
-    display: flex;
-    text-align: left;
-    margin: auto;
-    width: 100%;
-    background-color: #333333;
-    height: 40px;
-
-    flex-direction: row;
-    align-items: left;
-    justify-content: left;
-
-    .navigation-link {
-        padding-right:1em;
-        display: inline-block;
-        font-size: calc(18px + 2vmin);
-        color: #ffffff;
-      }
-  }
-  
-  h1 {
-    margin: 0;
-  
-  }
-  
-  h2 {
-    margin: 1;
-  }
-  
-
-  
-  .technologies {
-    margin-top: 20vh;
-    margin-bottom: 20vh;
-    font-size: calc(8px + 2vmin);
-    max-width: 70vw;
-    margin-left: auto;
-    margin-right: auto;
-
-  
-    .technology-card-row {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-evenly;
-        padding-bottom: 10vh;
-        .technology-card {
-            transition: transform .4s;
-
-            a {
-                color: inherit;
-                text-decoration: none;
-            }
-        }
-        .technology-card:hover {
-            transform: scale(1.4);
-        }
-      }
-  }
-
-  .resume {
-    height: 100vh;
-    text-align: center;
-    iframe {
-      max-width: 80%;
-      height: 80%;
+      margin: 0.75em 0;
+      padding: 2em;
+      display: inline-block;
+      height: 4em;
+      width: 4em;
+      transition: transform 0.4s;
+    }
+    .logo:hover {
+      transform: scale(1.2);
     }
   }
-  
-  @keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-  }
-  
-  /* Firefox < 16 */
-  @-moz-keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-  }
-  
-  /* Safari, Chrome and Opera > 12.1 */
-  @-webkit-keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-  }
-  
-  /* Internet Explorer */
-  @-ms-keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-  }
-  
-  @keyframes delayFadein {
-    0% { opacity:0; }
-    40% { opacity:0; }
-    100% { opacity:1; }
-  }
-  
-  /* Firefox < 16 */
-  @-moz-keyframes delayFadein {
-    0% { opacity:0; }
-    40% { opacity:0; }
-    100% { opacity:1; }
-  }
-  
-  /* Safari, Chrome and Opera > 12.1 */
-  @-webkit-keyframes delayFadein {
-    0% { opacity:0; }
-    40% { opacity:0; }
-    100% { opacity:1; }
-  }
-  
-  /* Internet Explorer */
-  @-ms-keyframes delayFadein {
-    0% { opacity:0; }
-    40% { opacity:0; }
-    100% { opacity:1; }
-  }
+}
 
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes delayFadein {
+  0% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes delayFadein {
+  0% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes delayFadein {
+  0% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Internet Explorer */
+@-ms-keyframes delayFadein {
+  0% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
