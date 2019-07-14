@@ -31,7 +31,7 @@ class App extends Component {
             <br />
             <br />
             I've built web applications, web services, file processors, custom plugins, grids,
-            reports, and stored proceedures.
+            reports, and stored procedures.
             <br />
             <br />
             As part of a team, it’s crucial to me that others are heard and feel understood. I work
