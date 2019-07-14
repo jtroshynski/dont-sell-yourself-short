@@ -172,30 +172,43 @@ h2 {
 .resume {
   margin-bottom: 10vh;
 }
+.resume .resume-link {
+  padding: 0 3em;
+  padding-top: 1em;
+}
+.resume .resume-link a {
+  color: #fff;
+  text-transform: uppercase;
+  background: #307390;
+  padding: 20px;
+  border-radius: 5px;
+  display: inline-block;
+  border: none;
+}
+.resume .resume-link a:hover {
+  background: #333333;
+  -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+  -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+  box-shadow: 5px 40px -10px rgba(0, 0, 0, 0.57);
+  transition: all 0.4s ease 0s;
+}
+@media screen and (max-width: 768px) {
+  .resume .resume-box {
+    visibility: hidden;
+    display: none;
+  }
+}
 @media screen and (min-width: 768px) {
   .resume {
     margin-bottom: 20vh;
   }
-}
-.resume .resume-box {
-  position: relative;
-  padding-bottom: 56.25%;
-  padding-top: 35px;
-  height: 0;
-  overflow: hidden;
-}
-.resume .resume-box iframe {
-  width: 70vw;
-  height: 60vh;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-@media screen and (min-width: 768px) {
+  .resume .resume-box {
+    height: 100vh;
+    width: auto;
+  }
   .resume .resume-box iframe {
-    height: 90vh;
+    max-width: 80%;
+    height: 90%;
   }
 }
 
@@ -210,12 +223,12 @@ h2 {
 .contactme .logo-container {
   display: flex;
   text-align: center;
-  padding: 2vw;
+  padding: 0 3em;
 }
 .contactme .logo-container .logo {
-  padding: 2vw;
+  padding: 3vw;
   display: inline-block;
-  height: 8vh;
+  height: 6vh;
   width: auto;
   transition: transform 0.4s;
 }

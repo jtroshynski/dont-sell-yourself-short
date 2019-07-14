@@ -63,6 +63,11 @@ class App extends Component {
               frameBorder="0"
             />
           </div>
+          <div className="resume-link">
+            <a href="https://docs.google.com/document/d/1ks_hKqGeJJIt-NyShR7PL64aj8Y6r962kO42fsjbpBQ/edit?usp=sharing">
+              Resume
+            </a>
+          </div>
         </div>
         <Fade right cascade>
           <div className="content-divider" />
