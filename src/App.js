@@ -64,7 +64,7 @@ class App extends Component {
             />
           </div>
           <div className="resume-link">
-            <a href="https://docs.google.com/document/d/1ks_hKqGeJJIt-NyShR7PL64aj8Y6r962kO42fsjbpBQ/edit?usp=sharing">
+            <a href="https://drive.google.com/file/d/12yuyt2VIPXkoDz22nnaiemYgBCHK7odr/view?usp=sharing">
               Resume
             </a>
           </div>
