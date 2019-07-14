@@ -135,6 +135,15 @@ h2 {
     margin-bottom: 20vh;
   }
 }
+.technologies p {
+  max-width: 90vw;
+  padding: 0 3em;
+}
+@media screen and (min-width: 768px) {
+  .technologies p {
+    max-width: 40vw;
+  }
+}
 .technologies ul {
   columns: 2;
   margin: 0.75em 0;

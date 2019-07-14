@@ -25,7 +25,18 @@ class App extends Component {
           <Fade right cascade>
             <div className="section-title">Skills</div>
           </Fade>
-
+          <p>
+            My skills are comprised of technologies across the web application stack. Listed below
+            you'll see the tools I've been working with lately.
+            <br />
+            <br />
+            I've built web applications, web services, file processors, custom plugins, grids,
+            reports, and stored proceedures.
+            <br />
+            <br />
+            As part of a team, it’s crucial to me that others are heard and feel understood. I work
+            best in a group with a common goal, but can also plod along happily on my own.
+          </p>
           <ul>
             <li>C#</li>
             <li>React</li>

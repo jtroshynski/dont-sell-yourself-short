@@ -119,6 +119,15 @@ h2 {
     margin-bottom: 20vh;
   }
 
+  p {
+    max-width: 90vw;
+    padding: 0 3em;
+    //Desktop
+    @media screen and (min-width: 768px) {
+      max-width: 40vw;
+    }
+  }
+
   ul {
     columns: 2;
     margin: 0.75em 0;
