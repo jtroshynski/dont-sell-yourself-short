@@ -14,8 +14,8 @@ class App extends Component {
         <header className="App-header">
           <img src={me} className="picture-of-me" alt="Jeremy" />
           <div className="App-intro">
-            <h1 className="intro1">Jeremy Troshynski</h1>
-            <h1 className="intro2">Journeyman full stack developer</h1>
+            <h1 className="intro1">JEREMY TROSHYNSKI</h1>
+            <h1 className="intro2">FULL STACK DEVELOPER</h1>
           </div>
         </header>
         <Fade right cascade>
@@ -25,28 +25,16 @@ class App extends Component {
           <Fade right cascade>
             <div className="section-title">Skills</div>
           </Fade>
-          <p>
-            My skills are comprised of technologies across the web application stack. Listed below
-            you'll see the tools I've been working with lately.
-            <br />
-            <br />
-            I've built web applications, web services, file processors, custom plugins, grids,
-            reports, and stored procedures.
-            <br />
-            <br />
-            As part of a team, it’s crucial to me that others are heard and feel understood. I work
-            best in a group with a common goal, but can also plod along happily on my own.
-          </p>
           <ul>
-            <li>C#</li>
-            <li>React</li>
-            <li>HTML</li>
-            <li>(S)CSS</li>
             <li>Java</li>
+            <li>React</li>
+            <li>HTML / (S)CSS</li>
+            <li>(S)CSS</li>
+            <li>C#</li>
             <li>Javascript</li>
           </ul>
         </div>
-        <div id="projects" className="projects" />
+        {/* <div id="projects" className="projects" />
         <Fade right cascade>
           <div className="content-divider" />
         </Fade>
@@ -68,7 +56,7 @@ class App extends Component {
               Resume
             </a>
           </div>
-        </div>
+        </div> */}
         <Fade right cascade>
           <div className="content-divider" />
         </Fade>
