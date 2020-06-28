@@ -5,7 +5,7 @@ import linkedin from "./images/LinkedIn-Logos/In/Digital/Blue/2x/In-Blue-40@2x.p
 import email from "./images/envelope-solid.svg";
 import Fade from "react-reveal/Fade";
 
-import "./App.css";
+import "./css/App.css";
 
 class App extends Component {
   render() {
