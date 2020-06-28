@@ -1,3 +1,22 @@
+
+$color-pink: #bd4854;
+$color-blue: #5da59a;
+$color-lightBlue: #66e3ab;
+$color-orange: #ee7a07;
+$color-orange2: #dd7251;
+$color-yellow: #f6f48e;
+$color-black: #000000;
+
+$color-background: $color-yellow;
+$color-highlight1: $color-blue;
+$color-highlight2: $color-pink;
+$color-headerText: $color-pink;
+$color-subHeaderText: $color-black;
+$color-bodyText: $color-orange;
+
+$font-title: "Schoolbell", sans-serif;
+$font-body: "Schoolbell", sans-serif;
+
 body,
 html {
   height: 100%;
@@ -5,33 +24,23 @@ html {
   margin: 0;
   padding: 0;
   scroll-behavior: smooth;
+  background-color: $color-lightBlue;
 }
-
-// 246	245	142	yellow #f6f48e
-//238	124	7	orange #ee7a07
-// 93	165	154	blue #5da59a
-// 189	72	84	pink 
-$color-pink: #bd4854;
-$color-blue: #5da59a;
-$color-lightBlue: #66e3ab;
-$color-orange: #ee7a07;
-$color-yellow: #f6f48e;
-
 
 .App {
   display: inline-block;
   margin: auto;
   width: 80%;
   margin-left: 10vw;
-  font-family: "Nunito Sans", sans-serif;
-  background-color: $color-yellow;
+
+  background-color: $color-background;
   //Desktop
   @media screen and (min-width: 768px) {
     margin-left: 20vw;
   }
   .section-title {
     font-size: 10vw;
-    color: #444444;
+    color: $color-subHeaderText;
     //Desktop
     @media screen and (min-width: 768px) {
       font-size: 5vw;
@@ -46,13 +55,14 @@ $color-yellow: #f6f48e;
   margin-top: 4vh;
   display: flex;
   flex-direction: column;
+  font-family: $font-title;
   //Desktop
   @media screen and (min-width: 768px) {
     height: 100vh;
     margin-top: 10vh;
   }
 
-  img {
+  img { //pitcha of me
     display: block;
     width: 50vw;
     height: auto;
@@ -65,7 +75,7 @@ $color-yellow: #f6f48e;
     }
   }
 
-  .App-intro {
+  .App-intro { //pitcha, name, title
     padding: 0;
     margin: 0;
     text-align: left;
@@ -75,10 +85,10 @@ $color-yellow: #f6f48e;
     @media screen and (min-width: 768px) {
       margin-bottom: 20vh;
     }
-    .intro1 {
-      color: #307390;
+    .intro1 { //muh name
+      color: $color-headerText;
       font-size: 9vw;
-      font-family: "Cabin", sans-serif;
+      font-family: $font-title;
       -webkit-animation: fadein 3s; /* Safari, Chrome and Opera > 12.1 */
       -moz-animation: fadein 3s; /* Firefox < 16 */
       -ms-animation: fadein 3s; /* Internet Explorer */
@@ -88,8 +98,8 @@ $color-yellow: #f6f48e;
       }
     }
 
-    .intro2 {
-      color: #444444;
+    .intro2 { //muh title
+      color: $color-subHeaderText;
       font-size: 4vw;
       margin-top: 5px;
       -webkit-animation: delayFadein 3s; /* Safari, Chrome and Opera > 12.1 */
@@ -106,8 +116,9 @@ $color-yellow: #f6f48e;
 .content-divider {
   margin: auto;
   width: 100%;
-  background-color: #333333;
+  background-color: $color-highlight2;
   height: 20px;
+  box-shadow: 5px 10px;
 
   //Desktop
   @media screen and (min-width: 768px) {
@@ -125,6 +136,7 @@ h2 {
 
 .technologies {
   margin-bottom: 5vh;
+  font-family: $font-body;
 
   //Desktop
   @media screen and (min-width: 768px) {
@@ -147,14 +159,26 @@ h2 {
     list-style: none;
     font-size: 5vw;
 
+
     //Desktop
     @media screen and (min-width: 768px) {
       font-size: 2.5vw;
     }
 
+    li {
+      color: $color-bodyText;
+      margin: 1em 0.25em;
+      padding: 0 0.25em;
+      box-shadow: 5px 10px $color-black;
+      background-color: $color-lightBlue;
+      border-color: $color-black;
+      border-width: 2px;
+      border-style: solid;
+    }
+
     li::before {
       content: "";
-      border-color: transparent #307390;
+      border-color: transparent $color-highlight1;
       border-style: solid;
       border-width: 0.35em 0 0.35em 0.45em;
       display: block;
@@ -169,6 +193,7 @@ h2 {
 
 .resume {
   margin-bottom: 10vh;
+  font-family: $font-body;
   .resume-link {
     padding: 0 3em;
     padding-top: 1em;
@@ -176,7 +201,7 @@ h2 {
     a {
       color: #fff;
       text-transform: uppercase;
-      background: #307390;
+      background: $color-highlight2;
       padding: 20px;
       border-radius: 5px;
       display: inline-block;
@@ -184,7 +209,7 @@ h2 {
       border: none;
     }
     a:hover {
-      background: #333333;
+      background: $color-highlight1;
       -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
       -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
       box-shadow: 5px 40px -10px rgba(0, 0, 0, 0.57);
@@ -216,6 +241,7 @@ h2 {
 
 .contactme {
   height: 30vh;
+  font-family: $font-body;
   @media screen and (min-width: 768px) {
     height: 70vh;
   }

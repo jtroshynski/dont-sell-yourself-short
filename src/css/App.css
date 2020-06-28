@@ -5,21 +5,20 @@ html {
   margin: 0;
   padding: 0;
   scroll-behavior: smooth;
-  background-color: #f6f48e; }
+  background-color: #66e3ab; }
 
 .App {
   display: inline-block;
   margin: auto;
   width: 80%;
   margin-left: 10vw;
-  font-family: "Nunito Sans", sans-serif;
   background-color: #f6f48e; }
   @media screen and (min-width: 768px) {
     .App {
       margin-left: 20vw; } }
   .App .section-title {
     font-size: 10vw;
-    color: #444444; }
+    color: #000000; }
     @media screen and (min-width: 768px) {
       .App .section-title {
         font-size: 5vw; } }
@@ -30,7 +29,8 @@ html {
   height: auto;
   margin-top: 4vh;
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  font-family: "Schoolbell", sans-serif; }
   @media screen and (min-width: 768px) {
     .App-header {
       height: 100vh;
@@ -59,9 +59,9 @@ html {
       .App-header .App-intro {
         margin-bottom: 20vh; } }
     .App-header .App-intro .intro1 {
-      color: #307390;
+      color: #bd4854;
       font-size: 9vw;
-      font-family: "Cabin", sans-serif;
+      font-family: "Schoolbell", sans-serif;
       -webkit-animation: fadein 3s;
       /* Safari, Chrome and Opera > 12.1 */
       -moz-animation: fadein 3s;
@@ -73,7 +73,7 @@ html {
         .App-header .App-intro .intro1 {
           font-size: 6.5vw; } }
     .App-header .App-intro .intro2 {
-      color: #444444;
+      color: #000000;
       font-size: 4vw;
       margin-top: 5px;
       -webkit-animation: delayFadein 3s;
@@ -90,8 +90,9 @@ html {
 .content-divider {
   margin: auto;
   width: 100%;
-  background-color: #333333;
-  height: 20px; }
+  background-color: #bd4854;
+  height: 20px;
+  box-shadow: 5px 10px; }
   @media screen and (min-width: 768px) {
     .content-divider {
       height: 40px; } }
@@ -103,7 +104,8 @@ h2 {
   margin: 1; }
 
 .technologies {
-  margin-bottom: 5vh; }
+  margin-bottom: 5vh;
+  font-family: "Schoolbell", sans-serif; }
   @media screen and (min-width: 768px) {
     .technologies {
       margin-bottom: 20vh; } }
@@ -122,9 +124,18 @@ h2 {
     @media screen and (min-width: 768px) {
       .technologies ul {
         font-size: 2.5vw; } }
+    .technologies ul li {
+      color: #ee7a07;
+      margin: 1em 0.25em;
+      padding: 0 0.25em;
+      box-shadow: 5px 10px #000000;
+      background-color: #66e3ab;
+      border-color: #000000;
+      border-width: 2px;
+      border-style: solid; }
     .technologies ul li::before {
       content: "";
-      border-color: transparent #307390;
+      border-color: transparent #5da59a;
       border-style: solid;
       border-width: 0.35em 0 0.35em 0.45em;
       display: block;
@@ -135,20 +146,21 @@ h2 {
       position: relative; }
 
 .resume {
-  margin-bottom: 10vh; }
+  margin-bottom: 10vh;
+  font-family: "Schoolbell", sans-serif; }
   .resume .resume-link {
     padding: 0 3em;
     padding-top: 1em; }
     .resume .resume-link a {
       color: #fff;
       text-transform: uppercase;
-      background: #307390;
+      background: #bd4854;
       padding: 20px;
       border-radius: 5px;
       display: inline-block;
       border: none; }
     .resume .resume-link a:hover {
-      background: #333333;
+      background: #5da59a;
       -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
       -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
       box-shadow: 5px 40px -10px rgba(0, 0, 0, 0.57);
@@ -168,7 +180,8 @@ h2 {
           height: 90%; } }
 
 .contactme {
-  height: 30vh; }
+  height: 30vh;
+  font-family: "Schoolbell", sans-serif; }
   @media screen and (min-width: 768px) {
     .contactme {
       height: 70vh; } }
