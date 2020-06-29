@@ -29,7 +29,7 @@ class App extends Component {
             <li>Java</li>
             <li>React</li>
             <li>HTML / (S)CSS</li>
-            <li>(S)CSS</li>
+            <li>AWS</li>
             <li>C#</li>
             <li>Javascript</li>
           </ul>
