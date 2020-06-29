@@ -12,10 +12,17 @@ $color-highlight1: $color-blue;
 $color-highlight2: $color-pink;
 $color-headerText: $color-pink;
 $color-subHeaderText: $color-black;
-$color-bodyText: $color-orange;
+$color-bodyText: $color-orange2;
 
-$font-title: "Schoolbell", sans-serif;
-$font-body: "Schoolbell", sans-serif;
+$font-title: "Billy", sans-serif;
+$font-body: "Billy", sans-serif;
+
+@font-face {
+  font-family: 'Billy';
+  src: url('../fonts/billy.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/billy.woff2') format('woff2'), /* Modern Browsers */
+       url('../fonts/billy.ttf')  format('truetype'), /* Safari, Android, iOS */
+}
 
 body,
 html {
@@ -25,6 +32,7 @@ html {
   padding: 0;
   scroll-behavior: smooth;
   background-color: $color-lightBlue;
+  text-shadow: 2px 2px $color-black;
 }
 
 .App {
@@ -32,6 +40,8 @@ html {
   margin: auto;
   width: 80%;
   margin-left: 10vw;
+  padding: 0 2em;
+  box-shadow: -20px 0px #000000;
 
   background-color: $color-background;
   //Desktop
@@ -41,6 +51,7 @@ html {
   .section-title {
     font-size: 10vw;
     color: $color-subHeaderText;
+    padding: 1em 0 0 0.25em;
     //Desktop
     @media screen and (min-width: 768px) {
       font-size: 5vw;
@@ -52,13 +63,13 @@ html {
   align-items: left;
   justify-content: left;
   height: auto;
-  margin-top: 4vh;
+  // margin-top: 4vh;
   display: flex;
   flex-direction: column;
   font-family: $font-title;
   //Desktop
   @media screen and (min-width: 768px) {
-    height: 100vh;
+    // height: 100vh;
     margin-top: 10vh;
   }
 
@@ -75,7 +86,7 @@ html {
     }
   }
 
-  .App-intro { //pitcha, name, title
+  .App-intro { //name, title
     padding: 0;
     margin: 0;
     text-align: left;
@@ -83,10 +94,10 @@ html {
     margin-bottom: 5vh;
     //Desktop
     @media screen and (min-width: 768px) {
-      margin-bottom: 20vh;
+      margin-bottom: 10vh;
     }
-    .intro1 { //muh name
-      color: $color-headerText;
+    .name { //muh name
+      color: $color-subHeaderText;
       font-size: 9vw;
       font-family: $font-title;
       -webkit-animation: fadein 3s; /* Safari, Chrome and Opera > 12.1 */
@@ -98,9 +109,9 @@ html {
       }
     }
 
-    .intro2 { //muh title
-      color: $color-subHeaderText;
-      font-size: 4vw;
+    .title { //muh title
+      color: $color-pink;
+      font-size: 5vw;
       margin-top: 5px;
       -webkit-animation: delayFadein 3s; /* Safari, Chrome and Opera > 12.1 */
       -moz-animation: delayFadein 3s; /* Firefox < 16 */
@@ -134,13 +145,13 @@ h2 {
   margin: 1;
 }
 
-.technologies {
+.skills {
   margin-bottom: 5vh;
   font-family: $font-body;
 
   //Desktop
   @media screen and (min-width: 768px) {
-    margin-bottom: 20vh;
+    margin-bottom: 10vh;
   }
 
   p {
@@ -155,7 +166,7 @@ h2 {
   ul {
     columns: 2;
     margin: 0.75em 0;
-    padding: 0 3em;
+    padding: 0 3em 0 3em;
     list-style: none;
     font-size: 5vw;
 
@@ -243,7 +254,8 @@ h2 {
   height: 30vh;
   font-family: $font-body;
   @media screen and (min-width: 768px) {
-    height: 70vh;
+    height: 30vh;
+    margin-bottom: 10vh;
   }
   .logo-container {
     display: flex;

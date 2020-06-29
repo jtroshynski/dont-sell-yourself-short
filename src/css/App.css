@@ -1,3 +1,7 @@
+@font-face {
+  font-family: 'Billy';
+  src: url("../fonts/billy.woff") format("woff"), url("../fonts/billy.woff2") format("woff2"), url("../fonts/billy.ttf") format("truetype"); }
+
 body,
 html {
   height: 100%;
@@ -5,20 +9,24 @@ html {
   margin: 0;
   padding: 0;
   scroll-behavior: smooth;
-  background-color: #66e3ab; }
+  background-color: #66e3ab;
+  text-shadow: 2px 2px #000000; }
 
 .App {
   display: inline-block;
   margin: auto;
   width: 80%;
   margin-left: 10vw;
+  padding: 0 2em;
+  box-shadow: -20px 0px #000000;
   background-color: #f6f48e; }
   @media screen and (min-width: 768px) {
     .App {
       margin-left: 20vw; } }
   .App .section-title {
     font-size: 10vw;
-    color: #000000; }
+    color: #000000;
+    padding: 1em 0 0 0.25em; }
     @media screen and (min-width: 768px) {
       .App .section-title {
         font-size: 5vw; } }
@@ -27,13 +35,11 @@ html {
   align-items: left;
   justify-content: left;
   height: auto;
-  margin-top: 4vh;
   display: flex;
   flex-direction: column;
-  font-family: "Schoolbell", sans-serif; }
+  font-family: "Billy", sans-serif; }
   @media screen and (min-width: 768px) {
     .App-header {
-      height: 100vh;
       margin-top: 10vh; } }
   .App-header img {
     display: block;
@@ -57,11 +63,11 @@ html {
     margin-bottom: 5vh; }
     @media screen and (min-width: 768px) {
       .App-header .App-intro {
-        margin-bottom: 20vh; } }
-    .App-header .App-intro .intro1 {
-      color: #bd4854;
+        margin-bottom: 10vh; } }
+    .App-header .App-intro .name {
+      color: #000000;
       font-size: 9vw;
-      font-family: "Schoolbell", sans-serif;
+      font-family: "Billy", sans-serif;
       -webkit-animation: fadein 3s;
       /* Safari, Chrome and Opera > 12.1 */
       -moz-animation: fadein 3s;
@@ -70,11 +76,11 @@ html {
       /* Internet Explorer */
       animation: fadein 3s; }
       @media screen and (min-width: 768px) {
-        .App-header .App-intro .intro1 {
+        .App-header .App-intro .name {
           font-size: 6.5vw; } }
-    .App-header .App-intro .intro2 {
-      color: #000000;
-      font-size: 4vw;
+    .App-header .App-intro .title {
+      color: #bd4854;
+      font-size: 5vw;
       margin-top: 5px;
       -webkit-animation: delayFadein 3s;
       /* Safari, Chrome and Opera > 12.1 */
@@ -84,7 +90,7 @@ html {
       /* Internet Explorer */
       animation: delayFadein 3s; }
       @media screen and (min-width: 768px) {
-        .App-header .App-intro .intro2 {
+        .App-header .App-intro .title {
           font-size: 2.6vw; } }
 
 .content-divider {
@@ -103,29 +109,29 @@ h1 {
 h2 {
   margin: 1; }
 
-.technologies {
+.skills {
   margin-bottom: 5vh;
-  font-family: "Schoolbell", sans-serif; }
+  font-family: "Billy", sans-serif; }
   @media screen and (min-width: 768px) {
-    .technologies {
-      margin-bottom: 20vh; } }
-  .technologies p {
+    .skills {
+      margin-bottom: 10vh; } }
+  .skills p {
     max-width: 90vw;
     padding: 0 3em; }
     @media screen and (min-width: 768px) {
-      .technologies p {
+      .skills p {
         max-width: 40vw; } }
-  .technologies ul {
+  .skills ul {
     columns: 2;
     margin: 0.75em 0;
-    padding: 0 3em;
+    padding: 0 3em 0 3em;
     list-style: none;
     font-size: 5vw; }
     @media screen and (min-width: 768px) {
-      .technologies ul {
+      .skills ul {
         font-size: 2.5vw; } }
-    .technologies ul li {
-      color: #ee7a07;
+    .skills ul li {
+      color: #dd7251;
       margin: 1em 0.25em;
       padding: 0 0.25em;
       box-shadow: 5px 10px #000000;
@@ -133,7 +139,7 @@ h2 {
       border-color: #000000;
       border-width: 2px;
       border-style: solid; }
-    .technologies ul li::before {
+    .skills ul li::before {
       content: "";
       border-color: transparent #5da59a;
       border-style: solid;
@@ -147,7 +153,7 @@ h2 {
 
 .resume {
   margin-bottom: 10vh;
-  font-family: "Schoolbell", sans-serif; }
+  font-family: "Billy", sans-serif; }
   .resume .resume-link {
     padding: 0 3em;
     padding-top: 1em; }
@@ -181,10 +187,11 @@ h2 {
 
 .contactme {
   height: 30vh;
-  font-family: "Schoolbell", sans-serif; }
+  font-family: "Billy", sans-serif; }
   @media screen and (min-width: 768px) {
     .contactme {
-      height: 70vh; } }
+      height: 30vh;
+      margin-bottom: 10vh; } }
   .contactme .logo-container {
     display: flex;
     text-align: center;

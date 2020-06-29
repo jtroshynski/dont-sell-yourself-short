@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import me from "./images/hexJeremy2.png";
+import me from "./images/JeremyStylized.png";
 import github from "./images/GitHub-Mark/PNG/GitHub-Mark-120px-plus.png";
 import linkedin from "./images/LinkedIn-Logos/In/Digital/Blue/2x/In-Blue-40@2x.png";
 import email from "./images/envelope-solid.svg";
@@ -14,14 +14,14 @@ class App extends Component {
         <header className="App-header">
           <img src={me} className="picture-of-me" alt="Jeremy" />
           <div className="App-intro">
-            <h1 className="intro1">JEREMY TROSHYNSKI</h1>
-            <h1 className="intro2">FULL STACK DEVELOPER</h1>
+            <h1 className="name">Jeremy Troshynski</h1>
+            <h1 className="title">Full Stack Developer</h1>
           </div>
         </header>
         <Fade right cascade>
           <div className="content-divider" />
         </Fade>
-        <div className="technologies">
+        <div className="skills">
           <Fade right cascade>
             <div className="section-title">Skills</div>
           </Fade>
