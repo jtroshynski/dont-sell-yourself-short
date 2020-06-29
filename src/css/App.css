@@ -3,29 +3,28 @@
   src: url("../fonts/billy.woff") format("woff"), url("../fonts/billy.woff2") format("woff2"), url("../fonts/billy.ttf") format("truetype"); }
 
 body,
-html {
-  height: 100%;
-  width: 100%;
+html, root {
   margin: 0;
   padding: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
   scroll-behavior: smooth;
   background-color: #66e3ab; }
 
 .App {
-  display: inline-block;
-  margin: auto;
-  width: 80%;
-  margin-left: 10vw;
-  padding: 0 2em;
+  display: flex;
+  flex-direction: column;
+  padding: 0 0 0 2em;
   box-shadow: -20px 0px #000000;
   background-color: #f6f48e; }
   @media screen and (min-width: 768px) {
     .App {
-      margin-left: 20vw; } }
+      margin-left: 15vw; } }
   .App .section-title {
     font-size: 10vw;
     color: #000000;
-    padding: 1em 0 0 0.25em; }
+    padding: 1em 0 0 0; }
     @media screen and (min-width: 768px) {
       .App .section-title {
         font-size: 5vw; } }
@@ -40,6 +39,9 @@ html {
   @media screen and (min-width: 768px) {
     .App-header {
       margin-top: 10vh; } }
+  @media screen and (max-width: 768px) {
+    .App-header {
+      margin-top: 2vh; } }
   .App-header img {
     display: block;
     width: 50vw;
@@ -58,7 +60,6 @@ html {
     padding: 0;
     margin: 0;
     text-align: left;
-    width: 80%;
     margin-bottom: 5vh; }
     @media screen and (min-width: 768px) {
       .App-header .App-intro {
@@ -91,13 +92,22 @@ html {
       @media screen and (min-width: 768px) {
         .App-header .App-intro .title {
           font-size: 2.6vw; } }
+      @media screen and (max-width: 768px) {
+        .App-header .App-intro .title {
+          font-size: 6vw; } }
 
 .content-divider {
-  margin: auto;
-  width: 100%;
+  width: 98%;
+  justify-content: left;
+  float: left;
   background-color: #bd4854;
   height: 20px;
-  box-shadow: 5px 10px; }
+  box-shadow: 5px 10px;
+  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+  -webkit-box-shadow: 5px 10px;
+  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+  -moz-box-shadow: 5px 10px;
+  /* Firefox 3.5 - 3.6 */ }
   @media screen and (min-width: 768px) {
     .content-divider {
       height: 40px; } }
@@ -123,23 +133,36 @@ h2 {
   .skills ul {
     columns: 2;
     margin: 0.75em 0;
-    padding: 0 3em 0 3em;
     list-style: none;
-    font-size: 5vw; }
+    max-width: 80vw; }
     @media screen and (min-width: 768px) {
       .skills ul {
-        font-size: 2.5vw; } }
+        font-size: 2.5vw;
+        padding: 0 3em 0 3em; } }
+    @media screen and (max-width: 768px) {
+      .skills ul {
+        font-size: 6vw;
+        padding: 0 0 0 .25em; } }
     .skills ul li {
       color: #dd7251;
       margin: 1em 0.25em;
       padding: 0 0.25em;
       box-shadow: 5px 10px #000000;
+      /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+      -webkit-box-shadow: 5px 10px #000000;
+      /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+      -moz-box-shadow: 5px 10px #000000;
+      /* Firefox 3.5 - 3.6 */
       background-color: #66e3ab;
       border-color: #000000;
       border-width: 2px;
       border-style: solid; }
       .skills ul li:hover {
-        box-shadow: none; }
+        box-shadow: none;
+        -webkit-box-shadow: none;
+        /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+        -moz-box-shadow: none;
+        /* Firefox 3.5 - 3.6 */ }
     .skills ul li::before {
       content: "";
       border-color: transparent #66e3ab;
@@ -151,40 +174,6 @@ h2 {
       left: -1em;
       top: 0.5em;
       position: relative; }
-
-.resume {
-  margin-bottom: 10vh;
-  font-family: "Billy", sans-serif; }
-  .resume .resume-link {
-    padding: 0 3em;
-    padding-top: 1em; }
-    .resume .resume-link a {
-      color: #fff;
-      text-transform: uppercase;
-      background: #bd4854;
-      padding: 20px;
-      border-radius: 5px;
-      display: inline-block;
-      border: none; }
-    .resume .resume-link a:hover {
-      background: #5da59a;
-      -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
-      -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
-      box-shadow: 5px 40px -10px rgba(0, 0, 0, 0.57);
-      transition: all 0.4s ease 0s; }
-  @media screen and (max-width: 768px) {
-    .resume .resume-box {
-      visibility: hidden;
-      display: none; } }
-  @media screen and (min-width: 768px) {
-    .resume {
-      margin-bottom: 20vh; }
-      .resume .resume-box {
-        height: 100vh;
-        width: auto; }
-        .resume .resume-box iframe {
-          max-width: 80%;
-          height: 90%; } }
 
 .contactme {
   height: 30vh;

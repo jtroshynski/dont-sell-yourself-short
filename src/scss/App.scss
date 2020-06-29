@@ -25,33 +25,37 @@ $font-body: "Billy", sans-serif;
 }
 
 body,
-html {
-  height: 100%;
-  width: 100%;
+html , root {
   margin: 0;
   padding: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
   scroll-behavior: smooth;
   background-color: $color-lightBlue;
-  // text-shadow: 2px 2px $color-black;
 }
 
+
 .App {
-  display: inline-block;
-  margin: auto;
-  width: 80%;
-  margin-left: 10vw;
-  padding: 0 2em;
+  display: flex;
+  // margin: auto;
+  flex-direction: column;
+  // margin-left: 10vw;
+  padding: 0 0 0 2em;
+  // box-shadow: -20px 0px #000000;
+  // -webkit-box-shadow: -20px 0px #000000;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+  // -moz-box-shadow:    -20px 0px #000000;  /* Firefox 3.5 - 3.6 */
   box-shadow: -20px 0px #000000;
+    //Desktop
+    @media screen and (min-width: 768px) {
+      margin-left: 15vw;
+    }
 
   background-color: $color-background;
-  //Desktop
-  @media screen and (min-width: 768px) {
-    margin-left: 20vw;
-  }
   .section-title {
     font-size: 10vw;
     color: $color-subHeaderText;
-    padding: 1em 0 0 0.25em;
+    padding: 1em 0 0 0;
     //Desktop
     @media screen and (min-width: 768px) {
       font-size: 5vw;
@@ -59,18 +63,20 @@ html {
   }
 }
 
-.App-header {
+.App-header { //pitcha, name, title
   align-items: left;
   justify-content: left;
   height: auto;
-  // margin-top: 4vh;
   display: flex;
   flex-direction: column;
   font-family: $font-title;
   //Desktop
   @media screen and (min-width: 768px) {
-    // height: 100vh;
     margin-top: 10vh;
+  }
+  //Mobile
+  @media screen and (max-width: 768px) {
+    margin-top: 2vh;
   }
 
   img { //pitcha of me
@@ -90,7 +96,7 @@ html {
     padding: 0;
     margin: 0;
     text-align: left;
-    width: 80%;
+    // width: 80vw;
     margin-bottom: 5vh;
     //Desktop
     @media screen and (min-width: 768px) {
@@ -120,16 +126,23 @@ html {
       @media screen and (min-width: 768px) {
         font-size: 2.6vw;
       }
+      //Mobile
+      @media screen and (max-width: 768px) {
+        font-size: 6vw;
+      }
     }
   }
 }
 
 .content-divider {
-  margin: auto;
-  width: 100%;
+  width: 98%;
+  justify-content: left;
+  float: left;
   background-color: $color-highlight2;
   height: 20px;
-  box-shadow: 5px 10px;
+  box-shadow: 5px 10px; /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+  -webkit-box-shadow: 5px 10px;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+  -moz-box-shadow:    5px 10px;  /* Firefox 3.5 - 3.6 */
 
   //Desktop
   @media screen and (min-width: 768px) {
@@ -166,27 +179,35 @@ h2 {
   ul {
     columns: 2;
     margin: 0.75em 0;
-    padding: 0 3em 0 3em;
     list-style: none;
-    font-size: 5vw;
-
+    max-width: 80vw;
 
     //Desktop
     @media screen and (min-width: 768px) {
       font-size: 2.5vw;
+      padding: 0 3em 0 3em;
+    }
+    //Mobile
+    @media screen and (max-width: 768px) {
+      font-size: 6vw;
+      padding: 0 0 0 .25em;
     }
 
     li {
       color: $color-bodyText;
       margin: 1em 0.25em;
       padding: 0 0.25em;
-      box-shadow: 5px 10px $color-black;
+      box-shadow: 5px 10px $color-black; /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+      -webkit-box-shadow: 5px 10px $color-black;;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+      -moz-box-shadow:    5px 10px $color-black;;  /* Firefox 3.5 - 3.6 */
       background-color: $color-lightBlue;
       border-color: $color-black;
       border-width: 2px;
       border-style: solid;
       &:hover {
         box-shadow: none;
+        -webkit-box-shadow: none; /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+        -moz-box-shadow:    none;  /* Firefox 3.5 - 3.6 */
       }
     }
 
@@ -205,53 +226,6 @@ h2 {
   }
 }
 
-.resume {
-  margin-bottom: 10vh;
-  font-family: $font-body;
-  .resume-link {
-    padding: 0 3em;
-    padding-top: 1em;
-
-    a {
-      color: #fff;
-      text-transform: uppercase;
-      background: $color-highlight2;
-      padding: 20px;
-      border-radius: 5px;
-      display: inline-block;
-
-      border: none;
-    }
-    a:hover {
-      background: $color-highlight1;
-      -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
-      -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
-      box-shadow: 5px 40px -10px rgba(0, 0, 0, 0.57);
-      transition: all 0.4s ease 0s;
-    }
-  }
-
-  //Mobile
-  @media screen and (max-width: 768px) {
-    .resume-box {
-      visibility: hidden;
-      display: none;
-    }
-  }
-
-  //Desktop
-  @media screen and (min-width: 768px) {
-    margin-bottom: 20vh;
-    .resume-box {
-      height: 100vh;
-      width: auto;
-      iframe {
-        max-width: 80%;
-        height: 90%;
-      }
-    }
-  }
-}
 
 .contactme {
   height: 30vh;
