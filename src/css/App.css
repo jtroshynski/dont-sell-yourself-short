@@ -9,8 +9,7 @@ html {
   margin: 0;
   padding: 0;
   scroll-behavior: smooth;
-  background-color: #66e3ab;
-  text-shadow: 2px 2px #000000; }
+  background-color: #66e3ab; }
 
 .App {
   display: inline-block;
