@@ -157,12 +157,6 @@ h2 {
       border-color: #000000;
       border-width: 2px;
       border-style: solid; }
-      .skills ul li:hover {
-        box-shadow: none;
-        -webkit-box-shadow: none;
-        /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
-        -moz-box-shadow: none;
-        /* Firefox 3.5 - 3.6 */ }
     .skills ul li::before {
       content: "";
       border-color: transparent #66e3ab;
