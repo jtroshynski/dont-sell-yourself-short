@@ -1,6 +1,7 @@
 # dont-sell-yourself-short
 
 My personal resume website!
+See it here: https://jtroshynski.netlify.app/
 
 ## Commands you can run
 * npm install - gets you all the goodies you need
