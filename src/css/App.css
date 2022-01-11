@@ -131,10 +131,14 @@ h2 {
       .skills p {
         max-width: 40vw; } }
   .skills ul {
-    columns: 2;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
     margin: 0.75em 0;
     list-style: none;
-    max-width: 80vw; }
+    max-width: 80vw;
+    gap: 1em;
+    justify-content: flex-start; }
     @media screen and (min-width: 768px) {
       .skills ul {
         font-size: 2.5vw;
@@ -146,6 +150,7 @@ h2 {
     .skills ul li {
       color: #dd7251;
       padding: 0.35em 0.25em;
+      margin: 1em 0;
       box-shadow: 5px 10px #000000;
       /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
       -webkit-box-shadow: 5px 10px #000000;
@@ -167,7 +172,15 @@ h2 {
   .contactme .logo-container {
     display: flex;
     text-align: center;
-    padding: 0 3em; }
+    padding: 0 3em;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin: 0.75em 0;
+    list-style: none;
+    max-width: 80vw;
+    gap: 1em;
+    justify-content: flex-start; }
     .contactme .logo-container .logo {
       padding: 3vw;
       display: inline-block;

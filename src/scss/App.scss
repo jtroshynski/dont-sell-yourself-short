@@ -162,6 +162,7 @@ h2 {
   margin-bottom: 5vh;
   font-family: $font-body;
 
+
   //Desktop
   @media screen and (min-width: 768px) {
     margin-bottom: 10vh;
@@ -177,10 +178,14 @@ h2 {
   }
 
   ul {
-    columns: 2;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
     margin: 0.75em 0;
     list-style: none;
     max-width: 80vw;
+    gap: 1em;
+    justify-content: flex-start;
 
     //Desktop
     @media screen and (min-width: 768px) {
@@ -196,9 +201,10 @@ h2 {
     li {
       color: $color-bodyText;
       padding: 0.35em 0.25em;
+      margin: 1em 0;
       box-shadow: 5px 10px $color-black; /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
-      -webkit-box-shadow: 5px 10px $color-black;;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
-      -moz-box-shadow:    5px 10px $color-black;;  /* Firefox 3.5 - 3.6 */
+      -webkit-box-shadow: 5px 10px $color-black;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+      -moz-box-shadow:    5px 10px $color-black;  /* Firefox 3.5 - 3.6 */
       background-color: $color-lightBlue;
       border-color: $color-black;
       border-width: 2px;
@@ -237,6 +243,15 @@ h2 {
     display: flex;
     text-align: center;
     padding: 0 3em;
+
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin: 0.75em 0;
+    list-style: none;
+    max-width: 80vw;
+    gap: 1em;
+    justify-content: flex-start;
 
     .logo {
       padding: 3vw;
