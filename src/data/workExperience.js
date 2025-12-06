@@ -3,7 +3,7 @@ const workExperience = [
     {
         id: 'imdb',
         company: 'IMDb',
-        role: 'Software Development Engineer',
+        role: 'Software Development Engineer II',
         startDate: 'August 2024',
         endDate: 'Present',
         description: 'Developed features for IMDb web and mobile applications, improving user experience for millions of users.',
@@ -12,7 +12,7 @@ const workExperience = [
     {
         id: 'prime-gaming',
         company: 'Prime Gaming',
-        role: 'Software Development Engineer',
+        role: 'Software Development Engineer II',
         startDate: 'October 2020',
         endDate: 'August 2024',
         description: 'Developed user-facing features and backend services for the Prime Gaming platform as part of the Accounts and Signups team. Built scalable solutions for account management, authentication, and user onboarding experiences.',
