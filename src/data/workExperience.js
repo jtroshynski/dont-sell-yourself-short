@@ -15,7 +15,7 @@ const workExperience = [
         role: 'Software Development Engineer',
         startDate: 'October 2020',
         endDate: 'August 2024',
-        description: 'Building scalable gaming experiences and backend services for Prime Gaming platform.',
+        description: 'Developed user-facing features and backend services for the Prime Gaming platform as part of the Accounts and Signups team. Built scalable solutions for account management, authentication, and user onboarding experiences.',
         logo: null
     },
     {

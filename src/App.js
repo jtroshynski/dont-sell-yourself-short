@@ -17,7 +17,9 @@ class App extends Component {
     this.state = {
       darkMode: savedTheme === 'dark',
       scrollPosition: 0,
-      profileImageLoaded: false
+      profileImageLoaded: false,
+      lightboxImage: null,
+      lightboxAlt: null
     };
 
     // Preload critical image for better perceived performance
@@ -73,6 +75,20 @@ class App extends Component {
     }));
   }
 
+  openLightbox = (imageSrc, imageAlt) => {
+    this.setState({
+      lightboxImage: imageSrc,
+      lightboxAlt: imageAlt
+    });
+  }
+
+  closeLightbox = () => {
+    this.setState({
+      lightboxImage: null,
+      lightboxAlt: null
+    });
+  }
+
   handleScroll = () => {
     // Use requestAnimationFrame for better performance (60fps)
     if (this.scrollRAF) {
@@ -121,7 +137,7 @@ class App extends Component {
   }
 
   render() {
-    const { darkMode, profileImageLoaded } = this.state;
+    const { darkMode, profileImageLoaded, lightboxImage, lightboxAlt } = this.state;
 
     return (
       <div className="App">
@@ -198,6 +214,58 @@ class App extends Component {
           <div className="projects-grid">
             {projects.map((project, index) => (
               <div key={project.id} className="project-card" style={{ animationDelay: `${index * 100}ms` }}>
+                {project.imageBefore && project.image ? (
+                  <div className="project-images-comparison">
+                    <div
+                      className="project-image-container clickable"
+                      onClick={() => this.openLightbox(project.imageBefore, `${project.title} - Before`)}
+                      role="button"
+                      tabIndex={0}
+                      onKeyPress={(e) => e.key === 'Enter' && this.openLightbox(project.imageBefore, `${project.title} - Before`)}
+                    >
+                      <span className="image-label">Before</span>
+                      <img
+                        src={project.imageBefore}
+                        alt={`${project.title} - Before`}
+                        className="project-image"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </div>
+                    <div
+                      className="project-image-container clickable"
+                      onClick={() => this.openLightbox(project.image, `${project.title} - After`)}
+                      role="button"
+                      tabIndex={0}
+                      onKeyPress={(e) => e.key === 'Enter' && this.openLightbox(project.image, `${project.title} - After`)}
+                    >
+                      <span className="image-label">After</span>
+                      <img
+                        src={project.image}
+                        alt={`${project.title} - After`}
+                        className="project-image"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </div>
+                  </div>
+                ) : project.image ? (
+                  <div
+                    className="project-image-container clickable"
+                    onClick={() => this.openLightbox(project.image, project.title)}
+                    role="button"
+                    tabIndex={0}
+                    onKeyPress={(e) => e.key === 'Enter' && this.openLightbox(project.image, project.title)}
+                  >
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="project-image"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                ) : null}
                 <div className="project-header">
                   <h3 className="project-title">{project.title}</h3>
                   <span className="project-company">{project.company}</span>
@@ -291,6 +359,29 @@ class App extends Component {
             ))}
           </div>
         </section>
+
+        {lightboxImage && (
+          <div
+            className="lightbox-overlay"
+            onClick={this.closeLightbox}
+            role="dialog"
+            aria-label="Image preview"
+          >
+            <button
+              className="lightbox-close"
+              onClick={this.closeLightbox}
+              aria-label="Close image preview"
+            >
+              ✕
+            </button>
+            <img
+              src={lightboxImage}
+              alt={lightboxAlt}
+              className="lightbox-image"
+              onClick={(e) => e.stopPropagation()}
+            />
+          </div>
+        )}
       </div>
     );
   }
