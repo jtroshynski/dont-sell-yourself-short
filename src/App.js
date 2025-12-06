@@ -12,7 +12,7 @@ class App extends Component {
     super(props);
 
     // Load theme preference from localStorage
-    const savedTheme = localStorage.getItem('theme') || 'light';
+    const savedTheme = localStorage.getItem('theme') || 'dark';
 
     this.state = {
       darkMode: savedTheme === 'dark',
