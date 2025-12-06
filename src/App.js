@@ -191,16 +191,30 @@ class App extends Component {
         </div> */}
         <div className="content-divider" />
 
-        <div id="contactme" className="contactme">
-          <div className="section-title">Get in Touch</div>
-          <div className="logo-container">
+        <section id="contactme" className="contact-section">
+          <h2 className="section-title">Get in Touch</h2>
+          <p className="contact-intro">
+            Let's connect! Feel free to reach out through any of these platforms.
+          </p>
+          <div className="contact-links-container">
             {contactLinks.map(link => (
-              <a key={link.id} href={link.url} aria-label={link.ariaLabel}>
-                <img className="logo" src={link.icon} alt={link.platform} />
+              <a
+                key={link.id}
+                href={link.url}
+                className="contact-link"
+                data-platform={link.id}
+                aria-label={link.ariaLabel}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <div className="contact-icon-wrapper">
+                  <img className="contact-icon" src={link.icon} alt="" />
+                </div>
+                <span className="contact-label">{link.platform}</span>
               </a>
             ))}
           </div>
-        </div>
+        </section>
       </div>
     );
   }
