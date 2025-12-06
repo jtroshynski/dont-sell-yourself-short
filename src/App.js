@@ -28,11 +28,19 @@ class App extends Component {
 
     // Set up scroll listener for animations
     window.addEventListener('scroll', this.handleScroll);
+
+    // Set up Intersection Observer for scroll-based animations
+    this.setupIntersectionObserver();
   }
 
   componentWillUnmount() {
     // Clean up scroll listener
     window.removeEventListener('scroll', this.handleScroll);
+
+    // Clean up Intersection Observer
+    if (this.observer) {
+      this.observer.disconnect();
+    }
   }
 
   componentDidUpdate(_prevProps, prevState) {
@@ -57,6 +65,40 @@ class App extends Component {
   handleScroll = () => {
     this.setState({
       scrollPosition: window.scrollY
+    });
+  }
+
+  setupIntersectionObserver = () => {
+    // Check if IntersectionObserver is available (not available in test environments)
+    if (typeof IntersectionObserver === 'undefined') {
+      return;
+    }
+
+    // Create Intersection Observer for scroll-triggered animations
+    const options = {
+      root: null, // viewport
+      rootMargin: '0px',
+      threshold: 0.1 // Trigger when 10% of element is visible
+    };
+
+    this.observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // Add animation class when element enters viewport
+          entry.target.classList.add('animate-in');
+          // Optionally unobserve after animation to improve performance
+          this.observer.unobserve(entry.target);
+        }
+      });
+    }, options);
+
+    // Observe all sections that should animate on scroll
+    const animatedSections = document.querySelectorAll(
+      '.about-section, .work-experience-section, .projects-section, .skills-section, .contact-section'
+    );
+
+    animatedSections.forEach((section) => {
+      this.observer.observe(section);
     });
   }
 
