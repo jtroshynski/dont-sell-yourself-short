@@ -24,7 +24,7 @@ class App extends Component {
 
     // Preload critical image for better perceived performance
     this.profileImage = new Image();
-    this.profileImage.src = require('./images/JeremyStylized.png');
+    this.profileImage.src = require('./images/headshot copy.jpeg');
     this.profileImage.onload = () => {
       this.setState({ profileImageLoaded: true });
     };
