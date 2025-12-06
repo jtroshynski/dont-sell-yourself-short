@@ -177,7 +177,7 @@ class App extends Component {
                 <span className="typing-text">Full Stack Engineer</span>
               </h2>
               <div className="hero-tagline">
-                Building scalable solutions that make an impact
+                Full stack engineering with a focus on user experience and enjoyment
               </div>
             </div>
           </div>
