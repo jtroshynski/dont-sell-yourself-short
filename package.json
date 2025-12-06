@@ -22,7 +22,16 @@
     "scss:build": "sass src/scss/App.scss src/css/App.css"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": "react-app",
+    "rules": {
+      "no-restricted-syntax": [
+        "error",
+        {
+          "selector": "ImportNamespaceSpecifier",
+          "message": "Namespace imports (import * as) are not allowed. Use named imports instead."
+        }
+      ]
+    }
   },
   "repository": {
     "type": "git",
@@ -39,5 +48,15 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "jest": {
+    "transformIgnorePatterns": [
+      "node_modules/(?!(fast-check)/)"
+    ]
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.0",
+    "fast-check": "^4.3.0"
+  }
 }
