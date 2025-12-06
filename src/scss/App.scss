@@ -1,4 +1,4 @@
-
+// Legacy colors (kept for backwards compatibility)
 $color-pink: #bd4854;
 $color-blue: #5da59a;
 $color-lightBlue: #66e3ab;
@@ -17,15 +17,135 @@ $color-bodyText: $color-orange2;
 $font-title: "Billy", sans-serif;
 $font-body: "Billy", sans-serif;
 
+// Responsive breakpoints
+$breakpoint-mobile: 768px;
+$breakpoint-desktop: 1024px;
+
+// CSS Custom Properties for Theme System
+:root {
+  // Light Mode Colors (default)
+  --color-primary: #2563eb;
+  --color-secondary: #7c3aed;
+  --color-background: #ffffff;
+  --color-surface: #f8fafc;
+  --color-text: #0f172a;
+  --color-text-secondary: #475569;
+  --color-accent: #06b6d4;
+
+  // Typography Scale
+  --font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-family-heading: var(--font-family-base);
+
+  // Font Sizes - Desktop
+  --font-size-h1: 3rem; // 48px
+  --font-size-h2: 2rem; // 32px
+  --font-size-h3: 1.5rem; // 24px
+  --font-size-body: 1rem; // 16px
+  --font-size-small: 0.875rem; // 14px
+
+  // Spacing System (base unit: 4px)
+  --spacing-xs: 0.25rem; // 4px
+  --spacing-sm: 0.5rem; // 8px
+  --spacing-md: 1rem; // 16px
+  --spacing-lg: 1.5rem; // 24px
+  --spacing-xl: 2rem; // 32px
+  --spacing-2xl: 4rem; // 64px
+
+  // Transitions
+  --transition-fast: 200ms ease;
+  --transition-base: 300ms ease;
+  --transition-slow: 400ms ease;
+}
+
+// Dark Mode Theme
+[data-theme="dark"] {
+  --color-primary: #3b82f6;
+  --color-secondary: #8b5cf6;
+  --color-background: #0f172a;
+  --color-surface: #1e293b;
+  --color-text: #f8fafc;
+  --color-text-secondary: #cbd5e1;
+  --color-accent: #22d3ee;
+}
+
+// Mobile Typography Scale
+@media screen and (max-width: $breakpoint-mobile) {
+  :root {
+    --font-size-h1: 2rem; // 32px
+    --font-size-h2: 1.5rem; // 24px
+    --font-size-h3: 1.25rem; // 20px
+    --spacing-2xl: 2rem; // 32px on mobile
+  }
+}
+
 @font-face {
   font-family: 'Billy';
-  src: url('../fonts/billy.woff') format('woff'), /* Modern Browsers */
-       url('../fonts/billy.woff2') format('woff2'), /* Modern Browsers */
-       url('../fonts/billy.ttf')  format('truetype'), /* Safari, Android, iOS */
+  src: url('../fonts/billy.woff') format('woff'),
+    /* Modern Browsers */
+    url('../fonts/billy.woff2') format('woff2'),
+    /* Modern Browsers */
+    url('../fonts/billy.ttf') format('truetype'),
+    /* Safari, Android, iOS */
 }
 
 body,
-html , root {
+html,
+root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  scroll-behavior: smooth;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-family-base);
+  transition: background-color var(--transition-base), color var(--transition-base);
+}
+
+// Theme Toggle Button
+.theme-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1000;
+  background-color: var(--color-surface);
+  border: 2px solid var(--color-primary);
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-base);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+  &:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  &:focus {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  @media screen and (max-width: $breakpoint-mobile) {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1.25rem;
+  }
+}
+
+body,
+html,
+root {
   margin: 0;
   padding: 0;
   width: 100%;
@@ -46,16 +166,19 @@ html , root {
   // -webkit-box-shadow: -20px 0px #000000;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
   // -moz-box-shadow:    -20px 0px #000000;  /* Firefox 3.5 - 3.6 */
   box-shadow: -20px 0px #000000;
-    //Desktop
-    @media screen and (min-width: 768px) {
-      margin-left: 15vw;
-    }
+
+  //Desktop
+  @media screen and (min-width: 768px) {
+    margin-left: 15vw;
+  }
 
   background-color: $color-background;
+
   .section-title {
     font-size: 10vw;
     color: $color-subHeaderText;
     padding: 1em 0 0 0;
+
     //Desktop
     @media screen and (min-width: 768px) {
       font-size: 5vw;
@@ -63,69 +186,91 @@ html , root {
   }
 }
 
-.App-header { //pitcha, name, title
+.App-header {
+  //pitcha, name, title
   align-items: left;
   justify-content: left;
   height: auto;
   display: flex;
   flex-direction: column;
   font-family: $font-title;
+
   //Desktop
   @media screen and (min-width: 768px) {
     margin-top: 10vh;
   }
+
   //Mobile
   @media screen and (max-width: 768px) {
     margin-top: 2vh;
   }
 
-  img { //pitcha of me
+  img {
+    //pitcha of me
     display: block;
     width: 50vw;
     height: auto;
-    -webkit-animation: fadein 3s; /* Safari, Chrome and Opera > 12.1 */
-    -moz-animation: fadein 3s; /* Firefox < 16 */
-    -ms-animation: fadein 3s; /* Internet Explorer */
+    -webkit-animation: fadein 3s;
+    /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadein 3s;
+    /* Firefox < 16 */
+    -ms-animation: fadein 3s;
+    /* Internet Explorer */
     animation: fadein 3s;
+
     @media screen and (min-width: 768px) {
       width: 24vw;
     }
   }
 
-  .App-intro { //name, title
+  .App-intro {
+    //name, title
     padding: 0;
     margin: 0;
     text-align: left;
     // width: 80vw;
     margin-bottom: 5vh;
+
     //Desktop
     @media screen and (min-width: 768px) {
       margin-bottom: 10vh;
     }
-    .name { //muh name
+
+    .name {
+      //muh name
       color: $color-subHeaderText;
       font-size: 9vw;
       font-family: $font-title;
-      -webkit-animation: fadein 3s; /* Safari, Chrome and Opera > 12.1 */
-      -moz-animation: fadein 3s; /* Firefox < 16 */
-      -ms-animation: fadein 3s; /* Internet Explorer */
+      -webkit-animation: fadein 3s;
+      /* Safari, Chrome and Opera > 12.1 */
+      -moz-animation: fadein 3s;
+      /* Firefox < 16 */
+      -ms-animation: fadein 3s;
+      /* Internet Explorer */
       animation: fadein 3s;
+
       @media screen and (min-width: 768px) {
         font-size: 6.5vw;
       }
     }
 
-    .title { //muh title
+    .title {
+      //muh title
       color: $color-pink;
       font-size: 5vw;
       margin-top: 5px;
-      -webkit-animation: delayFadein 3s; /* Safari, Chrome and Opera > 12.1 */
-      -moz-animation: delayFadein 3s; /* Firefox < 16 */
-      -ms-animation: delayFadein 3s; /* Internet Explorer */
+      -webkit-animation: delayFadein 3s;
+      /* Safari, Chrome and Opera > 12.1 */
+      -moz-animation: delayFadein 3s;
+      /* Firefox < 16 */
+      -ms-animation: delayFadein 3s;
+      /* Internet Explorer */
       animation: delayFadein 3s;
+
       @media screen and (min-width: 768px) {
         font-size: 2.6vw;
       }
+
       //Mobile
       @media screen and (max-width: 768px) {
         font-size: 6vw;
@@ -140,9 +285,12 @@ html , root {
   float: left;
   background-color: $color-highlight2;
   height: 20px;
-  box-shadow: 5px 10px; /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
-  -webkit-box-shadow: 5px 10px;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
-  -moz-box-shadow:    5px 10px;  /* Firefox 3.5 - 3.6 */
+  box-shadow: 5px 10px;
+  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+  -webkit-box-shadow: 5px 10px;
+  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+  -moz-box-shadow: 5px 10px;
+  /* Firefox 3.5 - 3.6 */
 
   //Desktop
   @media screen and (min-width: 768px) {
@@ -171,6 +319,7 @@ h2 {
   p {
     max-width: 90vw;
     padding: 0 3em;
+
     //Desktop
     @media screen and (min-width: 768px) {
       max-width: 40vw;
@@ -192,6 +341,7 @@ h2 {
       font-size: 2.5vw;
       padding: 0 3em 0 3em;
     }
+
     //Mobile
     @media screen and (max-width: 768px) {
       font-size: 6vw;
@@ -202,9 +352,12 @@ h2 {
       color: $color-bodyText;
       padding: 0.35em 0.25em;
       margin: 1em 0;
-      box-shadow: 5px 10px $color-black; /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
-      -webkit-box-shadow: 5px 10px $color-black;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
-      -moz-box-shadow:    5px 10px $color-black;  /* Firefox 3.5 - 3.6 */
+      box-shadow: 5px 10px $color-black;
+      /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+      -webkit-box-shadow: 5px 10px $color-black;
+      /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+      -moz-box-shadow: 5px 10px $color-black;
+      /* Firefox 3.5 - 3.6 */
       background-color: $color-lightBlue;
       border-color: $color-black;
       border-width: 2px;
@@ -235,10 +388,12 @@ h2 {
 .contactme {
   height: 30vh;
   font-family: $font-body;
+
   @media screen and (min-width: 768px) {
     height: 30vh;
     margin-bottom: 10vh;
   }
+
   .logo-container {
     display: flex;
     text-align: center;
@@ -259,11 +414,13 @@ h2 {
       height: 6vh;
       width: auto;
       transition: transform 0.4s;
+
       //Desktop
       @media screen and (min-width: 768px) {
         height: 12vh;
       }
     }
+
     .logo:hover {
       transform: scale(1.2);
     }
@@ -274,6 +431,7 @@ h2 {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -284,6 +442,7 @@ h2 {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -294,6 +453,7 @@ h2 {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -304,6 +464,7 @@ h2 {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -313,9 +474,11 @@ h2 {
   0% {
     opacity: 0;
   }
+
   40% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
@@ -326,9 +489,11 @@ h2 {
   0% {
     opacity: 0;
   }
+
   40% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
@@ -339,9 +504,11 @@ h2 {
   0% {
     opacity: 0;
   }
+
   40% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
@@ -352,9 +519,11 @@ h2 {
   0% {
     opacity: 0;
   }
+
   40% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }

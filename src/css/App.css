@@ -1,33 +1,139 @@
-@font-face {
-  font-family: 'Billy';
-  src: url("../fonts/billy.woff") format("woff"), url("../fonts/billy.woff2") format("woff2"), url("../fonts/billy.ttf") format("truetype"); }
+:root {
+  --color-primary: #2563eb;
+  --color-secondary: #7c3aed;
+  --color-background: #ffffff;
+  --color-surface: #f8fafc;
+  --color-text: #0f172a;
+  --color-text-secondary: #475569;
+  --color-accent: #06b6d4;
+  --font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-family-heading: var(--font-family-base);
+  --font-size-h1: 3rem;
+  --font-size-h2: 2rem;
+  --font-size-h3: 1.5rem;
+  --font-size-body: 1rem;
+  --font-size-small: 0.875rem;
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 4rem;
+  --transition-fast: 200ms ease;
+  --transition-base: 300ms ease;
+  --transition-slow: 400ms ease;
+}
 
+[data-theme=dark] {
+  --color-primary: #3b82f6;
+  --color-secondary: #8b5cf6;
+  --color-background: #0f172a;
+  --color-surface: #1e293b;
+  --color-text: #f8fafc;
+  --color-text-secondary: #cbd5e1;
+  --color-accent: #22d3ee;
+}
+
+@media screen and (max-width: 768px) {
+  :root {
+    --font-size-h1: 2rem;
+    --font-size-h2: 1.5rem;
+    --font-size-h3: 1.25rem;
+    --spacing-2xl: 2rem;
+  }
+}
+@font-face {
+  font-family: "Billy";
+  src: url("../fonts/billy.woff") format("woff"), url("../fonts/billy.woff2") format("woff2"), url("../fonts/billy.ttf") format("truetype");
+}
 body,
-html, root {
+html,
+root {
   margin: 0;
   padding: 0;
   width: 100%;
   display: flex;
   flex-direction: column;
   scroll-behavior: smooth;
-  background-color: #66e3ab; }
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-family-base);
+  transition: background-color var(--transition-base), color var(--transition-base);
+}
+
+.theme-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1000;
+  background-color: var(--color-surface);
+  border: 2px solid var(--color-primary);
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-base);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+.theme-toggle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+.theme-toggle:focus {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+.theme-toggle:active {
+  transform: scale(0.95);
+}
+@media screen and (max-width: 768px) {
+  .theme-toggle {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1.25rem;
+  }
+}
+
+body,
+html,
+root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  scroll-behavior: smooth;
+  background-color: #66e3ab;
+}
 
 .App {
   display: flex;
   flex-direction: column;
   padding: 0 0 0 2em;
   box-shadow: -20px 0px #000000;
-  background-color: #f6f48e; }
-  @media screen and (min-width: 768px) {
-    .App {
-      margin-left: 15vw; } }
+}
+@media screen and (min-width: 768px) {
+  .App {
+    margin-left: 15vw;
+  }
+}
+.App {
+  background-color: #f6f48e;
+}
+.App .section-title {
+  font-size: 10vw;
+  color: #000000;
+  padding: 1em 0 0 0;
+}
+@media screen and (min-width: 768px) {
   .App .section-title {
-    font-size: 10vw;
-    color: #000000;
-    padding: 1em 0 0 0; }
-    @media screen and (min-width: 768px) {
-      .App .section-title {
-        font-size: 5vw; } }
+    font-size: 5vw;
+  }
+}
 
 .App-header {
   align-items: left;
@@ -35,66 +141,85 @@ html, root {
   height: auto;
   display: flex;
   flex-direction: column;
-  font-family: "Billy", sans-serif; }
-  @media screen and (min-width: 768px) {
-    .App-header {
-      margin-top: 10vh; } }
-  @media screen and (max-width: 768px) {
-    .App-header {
-      margin-top: 2vh; } }
+  font-family: "Billy", sans-serif;
+}
+@media screen and (min-width: 768px) {
+  .App-header {
+    margin-top: 10vh;
+  }
+}
+@media screen and (max-width: 768px) {
+  .App-header {
+    margin-top: 2vh;
+  }
+}
+.App-header img {
+  display: block;
+  width: 50vw;
+  height: auto;
+  -webkit-animation: fadein 3s;
+  /* Safari, Chrome and Opera > 12.1 */
+  -moz-animation: fadein 3s;
+  /* Firefox < 16 */
+  -ms-animation: fadein 3s;
+  /* Internet Explorer */
+  animation: fadein 3s;
+}
+@media screen and (min-width: 768px) {
   .App-header img {
-    display: block;
-    width: 50vw;
-    height: auto;
-    -webkit-animation: fadein 3s;
-    /* Safari, Chrome and Opera > 12.1 */
-    -moz-animation: fadein 3s;
-    /* Firefox < 16 */
-    -ms-animation: fadein 3s;
-    /* Internet Explorer */
-    animation: fadein 3s; }
-    @media screen and (min-width: 768px) {
-      .App-header img {
-        width: 24vw; } }
+    width: 24vw;
+  }
+}
+.App-header .App-intro {
+  padding: 0;
+  margin: 0;
+  text-align: left;
+  margin-bottom: 5vh;
+}
+@media screen and (min-width: 768px) {
   .App-header .App-intro {
-    padding: 0;
-    margin: 0;
-    text-align: left;
-    margin-bottom: 5vh; }
-    @media screen and (min-width: 768px) {
-      .App-header .App-intro {
-        margin-bottom: 10vh; } }
-    .App-header .App-intro .name {
-      color: #000000;
-      font-size: 9vw;
-      font-family: "Billy", sans-serif;
-      -webkit-animation: fadein 3s;
-      /* Safari, Chrome and Opera > 12.1 */
-      -moz-animation: fadein 3s;
-      /* Firefox < 16 */
-      -ms-animation: fadein 3s;
-      /* Internet Explorer */
-      animation: fadein 3s; }
-      @media screen and (min-width: 768px) {
-        .App-header .App-intro .name {
-          font-size: 6.5vw; } }
-    .App-header .App-intro .title {
-      color: #bd4854;
-      font-size: 5vw;
-      margin-top: 5px;
-      -webkit-animation: delayFadein 3s;
-      /* Safari, Chrome and Opera > 12.1 */
-      -moz-animation: delayFadein 3s;
-      /* Firefox < 16 */
-      -ms-animation: delayFadein 3s;
-      /* Internet Explorer */
-      animation: delayFadein 3s; }
-      @media screen and (min-width: 768px) {
-        .App-header .App-intro .title {
-          font-size: 2.6vw; } }
-      @media screen and (max-width: 768px) {
-        .App-header .App-intro .title {
-          font-size: 6vw; } }
+    margin-bottom: 10vh;
+  }
+}
+.App-header .App-intro .name {
+  color: #000000;
+  font-size: 9vw;
+  font-family: "Billy", sans-serif;
+  -webkit-animation: fadein 3s;
+  /* Safari, Chrome and Opera > 12.1 */
+  -moz-animation: fadein 3s;
+  /* Firefox < 16 */
+  -ms-animation: fadein 3s;
+  /* Internet Explorer */
+  animation: fadein 3s;
+}
+@media screen and (min-width: 768px) {
+  .App-header .App-intro .name {
+    font-size: 6.5vw;
+  }
+}
+.App-header .App-intro .title {
+  color: #bd4854;
+  font-size: 5vw;
+  margin-top: 5px;
+  -webkit-animation: delayFadein 3s;
+  /* Safari, Chrome and Opera > 12.1 */
+  -moz-animation: delayFadein 3s;
+  /* Firefox < 16 */
+  -ms-animation: delayFadein 3s;
+  /* Internet Explorer */
+  animation: delayFadein 3s;
+}
+@media screen and (min-width: 768px) {
+  .App-header .App-intro .title {
+    font-size: 2.6vw;
+  }
+}
+@media screen and (max-width: 768px) {
+  .App-header .App-intro .title {
+    font-size: 6vw;
+  }
+}
 
 .content-divider {
   width: 98%;
@@ -107,150 +232,198 @@ html, root {
   -webkit-box-shadow: 5px 10px;
   /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
   -moz-box-shadow: 5px 10px;
-  /* Firefox 3.5 - 3.6 */ }
-  @media screen and (min-width: 768px) {
-    .content-divider {
-      height: 40px; } }
+  /* Firefox 3.5 - 3.6 */
+}
+@media screen and (min-width: 768px) {
+  .content-divider {
+    height: 40px;
+  }
+}
 
 h1 {
-  margin: 0; }
+  margin: 0;
+}
 
 h2 {
-  margin: 1; }
+  margin: 1;
+}
 
 .skills {
   margin-bottom: 5vh;
-  font-family: "Billy", sans-serif; }
-  @media screen and (min-width: 768px) {
-    .skills {
-      margin-bottom: 10vh; } }
+  font-family: "Billy", sans-serif;
+}
+@media screen and (min-width: 768px) {
+  .skills {
+    margin-bottom: 10vh;
+  }
+}
+.skills p {
+  max-width: 90vw;
+  padding: 0 3em;
+}
+@media screen and (min-width: 768px) {
   .skills p {
-    max-width: 90vw;
-    padding: 0 3em; }
-    @media screen and (min-width: 768px) {
-      .skills p {
-        max-width: 40vw; } }
+    max-width: 40vw;
+  }
+}
+.skills ul {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin: 0.75em 0;
+  list-style: none;
+  max-width: 80vw;
+  gap: 1em;
+  justify-content: flex-start;
+}
+@media screen and (min-width: 768px) {
   .skills ul {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    margin: 0.75em 0;
-    list-style: none;
-    max-width: 80vw;
-    gap: 1em;
-    justify-content: flex-start; }
-    @media screen and (min-width: 768px) {
-      .skills ul {
-        font-size: 2.5vw;
-        padding: 0 3em 0 3em; } }
-    @media screen and (max-width: 768px) {
-      .skills ul {
-        font-size: 6vw;
-        padding: 0 0 0 .25em; } }
-    .skills ul li {
-      color: #dd7251;
-      padding: 0.35em 0.25em;
-      margin: 1em 0;
-      box-shadow: 5px 10px #000000;
-      /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
-      -webkit-box-shadow: 5px 10px #000000;
-      /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
-      -moz-box-shadow: 5px 10px #000000;
-      /* Firefox 3.5 - 3.6 */
-      background-color: #66e3ab;
-      border-color: #000000;
-      border-width: 2px;
-      border-style: solid; }
+    font-size: 2.5vw;
+    padding: 0 3em 0 3em;
+  }
+}
+@media screen and (max-width: 768px) {
+  .skills ul {
+    font-size: 6vw;
+    padding: 0 0 0 0.25em;
+  }
+}
+.skills ul li {
+  color: #dd7251;
+  padding: 0.35em 0.25em;
+  margin: 1em 0;
+  box-shadow: 5px 10px #000000;
+  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+  -webkit-box-shadow: 5px 10px #000000;
+  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+  -moz-box-shadow: 5px 10px #000000;
+  /* Firefox 3.5 - 3.6 */
+  background-color: #66e3ab;
+  border-color: #000000;
+  border-width: 2px;
+  border-style: solid;
+}
 
 .contactme {
   height: 30vh;
-  font-family: "Billy", sans-serif; }
-  @media screen and (min-width: 768px) {
-    .contactme {
-      height: 30vh;
-      margin-bottom: 10vh; } }
-  .contactme .logo-container {
-    display: flex;
-    text-align: center;
-    padding: 0 3em;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    margin: 0.75em 0;
-    list-style: none;
-    max-width: 80vw;
-    gap: 1em;
-    justify-content: flex-start; }
-    .contactme .logo-container .logo {
-      padding: 3vw;
-      display: inline-block;
-      height: 6vh;
-      width: auto;
-      transition: transform 0.4s; }
-      @media screen and (min-width: 768px) {
-        .contactme .logo-container .logo {
-          height: 12vh; } }
-    .contactme .logo-container .logo:hover {
-      transform: scale(1.2); }
+  font-family: "Billy", sans-serif;
+}
+@media screen and (min-width: 768px) {
+  .contactme {
+    height: 30vh;
+    margin-bottom: 10vh;
+  }
+}
+.contactme .logo-container {
+  display: flex;
+  text-align: center;
+  padding: 0 3em;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin: 0.75em 0;
+  list-style: none;
+  max-width: 80vw;
+  gap: 1em;
+  justify-content: flex-start;
+}
+.contactme .logo-container .logo {
+  padding: 3vw;
+  display: inline-block;
+  height: 6vh;
+  width: auto;
+  transition: transform 0.4s;
+}
+@media screen and (min-width: 768px) {
+  .contactme .logo-container .logo {
+    height: 12vh;
+  }
+}
+.contactme .logo-container .logo:hover {
+  transform: scale(1.2);
+}
 
 @keyframes fadein {
   from {
-    opacity: 0; }
+    opacity: 0;
+  }
   to {
-    opacity: 1; } }
-
+    opacity: 1;
+  }
+}
 /* Firefox < 16 */
 @-moz-keyframes fadein {
   from {
-    opacity: 0; }
+    opacity: 0;
+  }
   to {
-    opacity: 1; } }
-
+    opacity: 1;
+  }
+}
 /* Safari, Chrome and Opera > 12.1 */
 @-webkit-keyframes fadein {
   from {
-    opacity: 0; }
+    opacity: 0;
+  }
   to {
-    opacity: 1; } }
-
+    opacity: 1;
+  }
+}
 /* Internet Explorer */
 @-ms-keyframes fadein {
   from {
-    opacity: 0; }
+    opacity: 0;
+  }
   to {
-    opacity: 1; } }
-
+    opacity: 1;
+  }
+}
 @keyframes delayFadein {
   0% {
-    opacity: 0; }
+    opacity: 0;
+  }
   40% {
-    opacity: 0; }
+    opacity: 0;
+  }
   100% {
-    opacity: 1; } }
-
+    opacity: 1;
+  }
+}
 /* Firefox < 16 */
 @-moz-keyframes delayFadein {
   0% {
-    opacity: 0; }
+    opacity: 0;
+  }
   40% {
-    opacity: 0; }
+    opacity: 0;
+  }
   100% {
-    opacity: 1; } }
-
+    opacity: 1;
+  }
+}
 /* Safari, Chrome and Opera > 12.1 */
 @-webkit-keyframes delayFadein {
   0% {
-    opacity: 0; }
+    opacity: 0;
+  }
   40% {
-    opacity: 0; }
+    opacity: 0;
+  }
   100% {
-    opacity: 1; } }
-
+    opacity: 1;
+  }
+}
 /* Internet Explorer */
 @-ms-keyframes delayFadein {
   0% {
-    opacity: 0; }
+    opacity: 0;
+  }
   40% {
-    opacity: 0; }
+    opacity: 0;
+  }
   100% {
-    opacity: 1; } }
+    opacity: 1;
+  }
+}
+
+/*# sourceMappingURL=App.css.map */

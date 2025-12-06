@@ -9,22 +9,17 @@
     "@fortawesome/free-regular-svg-icons": "^5.15.2",
     "@fortawesome/free-solid-svg-icons": "^5.15.2",
     "@fortawesome/react-fontawesome": "^0.1.14",
-    "gatsby": "^4.4.0",
-    "node-sass": "^7.0.1",
-    "pdf.js": "^0.1.0",
-    "react": "^16.14.0",
-    "react-dom": "^16.14.0",
-    "react-pdf": "^4.2.0",
-    "react-reveal": "^1.2.2",
-    "react-scripts": "^5.0.0",
-    "sass": "^1.32.8",
-    "typescript": "^4.1.5"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-scripts": "^5.0.1",
+    "sass": "^1.69.5"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "scss": "node-sass --watch src/scss/App.scss -o src/css"
+    "scss": "sass --watch src/scss/App.scss src/css/App.css",
+    "scss:build": "sass src/scss/App.scss src/css/App.css"
   },
   "eslintConfig": {
     "extends": "react-app"
