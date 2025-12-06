@@ -24,7 +24,7 @@ const workExperience = [
         role: 'Software Development Engineer',
         startDate: 'December 2019',
         endDate: 'October 2020',
-        description: 'Developed enterprise features for Alexa for Business platform.',
+        description: 'Developed conference room connectivity features for Alexa for Business platform.',
         logo: null
     },
     {
@@ -33,7 +33,7 @@ const workExperience = [
         role: 'Software Developer',
         startDate: 'June 2017',
         endDate: 'November 2019',
-        description: 'Developed banking applications and financial software solutions.',
+        description: 'Enhanced a customer relationship management tool for banking professionals to connect with clients.',
         logo: null
     },
     {

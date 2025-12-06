@@ -149,22 +149,36 @@ class App extends Component {
           {darkMode ? '☀️' : '🌙'}
         </button>
         <section className="hero-section">
-          <div className="hero-background"></div>
+          <div className="hero-background">
+            <div className="gradient-orb orb-1"></div>
+            <div className="gradient-orb orb-2"></div>
+            <div className="gradient-orb orb-3"></div>
+          </div>
           <div className="hero-content">
-            {profileImageLoaded ? (
-              <img
-                src={this.profileImage.src}
-                className="hero-image"
-                alt="Jeremy Troshynski"
-                loading="eager"
-                decoding="async"
-              />
-            ) : (
-              <div className="hero-image-placeholder" aria-label="Loading profile image" />
-            )}
+            <div className="hero-image-wrapper">
+              {profileImageLoaded ? (
+                <img
+                  src={this.profileImage.src}
+                  className="hero-image"
+                  alt="Jeremy Troshynski"
+                  loading="eager"
+                  decoding="async"
+                />
+              ) : (
+                <div className="hero-image-placeholder" aria-label="Loading profile image" />
+              )}
+              <div className="hero-image-glow"></div>
+            </div>
             <div className="hero-intro-card">
-              <h1 className="hero-name">Jeremy Troshynski</h1>
-              <h2 className="hero-title">Full Stack Developer</h2>
+              <h1 className="hero-name">
+                <span className="hero-name-text">Jeremy Troshynski</span>
+              </h1>
+              <h2 className="hero-title">
+                <span className="typing-text">Full Stack Engineer</span>
+              </h2>
+              <div className="hero-tagline">
+                Building scalable solutions that make an impact
+              </div>
             </div>
           </div>
         </section>
@@ -173,14 +187,14 @@ class App extends Component {
           <h2 className="section-title">About Me</h2>
           <div className="about-card">
             <p className="about-text">
-              I'm a Full Stack Developer with a passion for building scalable, user-focused applications.
-              With experience at IMDb and Prime Gaming, I've had the opportunity to work on products that
+              I'm a Full Stack Engineer with a passion for building scalable, user-focused applications.
+              With most of my experience at IMDb and Prime Gaming, I've had the opportunity to work on products that
               reach millions of users worldwide. I love tackling complex technical challenges and creating
               elegant solutions that make a real impact.
             </p>
             <p className="about-text">
-              When I'm not coding, you'll find me exploring new technologies, contributing to open source,
-              or enjoying the great outdoors. I believe in continuous learning and always strive to stay
+              When I'm not coding, you'll find me doing DIY projects, playing video games,
+              or enjoying the great outdoors. I believe in well-roundedness and always strive to stay
               current with the latest industry trends and best practices.
             </p>
           </div>
