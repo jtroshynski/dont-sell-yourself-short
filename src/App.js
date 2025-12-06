@@ -1,10 +1,13 @@
 import { Component } from "react";
 import me from "./images/JeremyStylized.png";
-import github from "./images/GitHub-Mark/PNG/GitHub-Mark-120px-plus.png";
-import linkedin from "./images/LinkedIn-Logos/In/Digital/Blue/2x/In-Blue-40@2x.png";
-import email from "./images/envelope-solid.svg";
 
 import "./css/App.css";
+
+// Import data from separate files
+import workExperience from "./data/workExperience";
+import projects from "./data/projects";
+import skills from "./data/skills";
+import contactLinks from "./data/contactLinks";
 
 class App extends Component {
   constructor(props) {
@@ -32,7 +35,7 @@ class App extends Component {
     window.removeEventListener('scroll', this.handleScroll);
   }
 
-  componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate(_prevProps, prevState) {
     // Apply theme when darkMode state changes
     if (prevState.darkMode !== this.state.darkMode) {
       this.applyTheme();
@@ -69,13 +72,56 @@ class App extends Component {
         >
           {darkMode ? '☀️' : '🌙'}
         </button>
-        <header className="App-header">
-          <img src={me} className="picture-of-me" alt="Jeremy" />
-          <div className="App-intro">
-            <h1 className="name">Jeremy Troshynski</h1>
-            <h1 className="title">Full Stack Developer</h1>
+        <section className="hero-section">
+          <div className="hero-background"></div>
+          <div className="hero-content">
+            <img src={me} className="hero-image" alt="Jeremy Troshynski" />
+            <div className="hero-intro-card">
+              <h1 className="hero-name">Jeremy Troshynski</h1>
+              <h2 className="hero-title">Full Stack Developer</h2>
+            </div>
           </div>
-        </header>
+        </section>
+        <div className="content-divider" />
+        <section className="about-section">
+          <h2 className="section-title">About Me</h2>
+          <div className="about-card">
+            <p className="about-text">
+              I'm a Full Stack Developer with a passion for building scalable, user-focused applications.
+              With experience at IMDb and Prime Gaming, I've had the opportunity to work on products that
+              reach millions of users worldwide. I love tackling complex technical challenges and creating
+              elegant solutions that make a real impact.
+            </p>
+            <p className="about-text">
+              When I'm not coding, you'll find me exploring new technologies, contributing to open source,
+              or enjoying the great outdoors. I believe in continuous learning and always strive to stay
+              current with the latest industry trends and best practices.
+            </p>
+          </div>
+        </section>
+        <div className="content-divider" />
+        <section className="work-experience-section">
+          <h2 className="section-title">Work Experience</h2>
+          <div className="timeline">
+            {workExperience.map((experience, index) => (
+              <div key={experience.id} className="timeline-item" style={{ animationDelay: `${index * 100}ms` }}>
+                <div className="timeline-marker"></div>
+                <div className="timeline-content">
+                  <div className="experience-card">
+                    <div className="experience-header">
+                      <h3 className="experience-role">{experience.role}</h3>
+                      <span className="experience-company">{experience.company}</span>
+                    </div>
+                    <div className="experience-dates">
+                      {experience.startDate} - {experience.endDate}
+                    </div>
+                    <p className="experience-description">{experience.description}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
         <div className="content-divider" />
         <div className="skills">
           <div className="section-title">Skills</div>
@@ -116,15 +162,11 @@ class App extends Component {
         <div id="contactme" className="contactme">
           <div className="section-title">Get in Touch</div>
           <div className="logo-container">
-            <a href="https://github.com/jtroshynski">
-              <img className="logo" src={github} alt="Github" />
-            </a>
-            <a href="https://www.linkedin.com/in/jeremytroshynski/">
-              <img className="logo" src={linkedin} alt="LinkedIn" />
-            </a>
-            <a href="mailto:jtroshynski@gmail.com">
-              <img className="logo" src={email} alt="LinkedIn" />
-            </a>
+            {contactLinks.map(link => (
+              <a key={link.id} href={link.url} aria-label={link.ariaLabel}>
+                <img className="logo" src={link.icon} alt={link.platform} />
+              </a>
+            ))}
           </div>
         </div>
       </div>

@@ -186,96 +186,189 @@ root {
   }
 }
 
-.App-header {
-  //pitcha, name, title
-  align-items: left;
-  justify-content: left;
-  height: auto;
+// Hero Section with Modern Styling
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-2xl) var(--spacing-xl);
+  overflow: hidden;
+
+  @media screen and (max-width: $breakpoint-mobile) {
+    min-height: auto;
+    padding: var(--spacing-xl) var(--spacing-md);
+    padding-top: 4rem; // Account for theme toggle button
+  }
+}
+
+// Gradient Background
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  opacity: 0.1;
+  z-index: 0;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, var(--color-accent) 0%, transparent 70%);
+    opacity: 0.3;
+    animation: gradientShift 15s ease infinite;
+  }
+}
+
+@keyframes gradientShift {
+
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(10%, 10%);
+  }
+}
+
+// Hero Content Container
+.hero-content {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
-  font-family: $font-title;
+  align-items: center;
+  gap: var(--spacing-xl);
+  max-width: 1200px;
+  width: 100%;
+  animation: heroFadeIn 1s ease-out;
 
-  //Desktop
-  @media screen and (min-width: 768px) {
-    margin-top: 10vh;
+  @media screen and (max-width: $breakpoint-mobile) {
+    gap: var(--spacing-lg);
+  }
+}
+
+// Hero Image
+.hero-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--color-primary);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  animation: heroImageFadeIn 1.2s ease-out;
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15);
   }
 
-  //Mobile
-  @media screen and (max-width: 768px) {
-    margin-top: 2vh;
+  @media screen and (max-width: $breakpoint-mobile) {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+// Glassmorphism Intro Card
+.hero-intro-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: var(--spacing-2xl);
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  animation: heroCardFadeIn 1.4s ease-out;
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15);
   }
 
-  img {
-    //pitcha of me
-    display: block;
-    width: 50vw;
-    height: auto;
-    -webkit-animation: fadein 3s;
-    /* Safari, Chrome and Opera > 12.1 */
-    -moz-animation: fadein 3s;
-    /* Firefox < 16 */
-    -ms-animation: fadein 3s;
-    /* Internet Explorer */
-    animation: fadein 3s;
-
-    @media screen and (min-width: 768px) {
-      width: 24vw;
-    }
+  @media screen and (max-width: $breakpoint-mobile) {
+    padding: var(--spacing-xl);
+    border-radius: 16px;
   }
 
-  .App-intro {
-    //name, title
-    padding: 0;
-    margin: 0;
-    text-align: left;
-    // width: 80vw;
-    margin-bottom: 5vh;
+  [data-theme="dark"] & {
+    background: rgba(30, 41, 59, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
 
-    //Desktop
-    @media screen and (min-width: 768px) {
-      margin-bottom: 10vh;
-    }
+// Hero Name
+.hero-name {
+  font-size: var(--font-size-h1);
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0 0 var(--spacing-sm) 0;
+  font-family: var(--font-family-heading);
+  line-height: 1.2;
 
-    .name {
-      //muh name
-      color: $color-subHeaderText;
-      font-size: 9vw;
-      font-family: $font-title;
-      -webkit-animation: fadein 3s;
-      /* Safari, Chrome and Opera > 12.1 */
-      -moz-animation: fadein 3s;
-      /* Firefox < 16 */
-      -ms-animation: fadein 3s;
-      /* Internet Explorer */
-      animation: fadein 3s;
+  @media screen and (max-width: $breakpoint-mobile) {
+    font-size: 2rem;
+  }
+}
 
-      @media screen and (min-width: 768px) {
-        font-size: 6.5vw;
-      }
-    }
+// Hero Title
+.hero-title {
+  font-size: var(--font-size-h2);
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  margin: 0;
+  font-family: var(--font-family-heading);
+  line-height: 1.4;
 
-    .title {
-      //muh title
-      color: $color-pink;
-      font-size: 5vw;
-      margin-top: 5px;
-      -webkit-animation: delayFadein 3s;
-      /* Safari, Chrome and Opera > 12.1 */
-      -moz-animation: delayFadein 3s;
-      /* Firefox < 16 */
-      -ms-animation: delayFadein 3s;
-      /* Internet Explorer */
-      animation: delayFadein 3s;
+  @media screen and (max-width: $breakpoint-mobile) {
+    font-size: 1.25rem;
+  }
+}
 
-      @media screen and (min-width: 768px) {
-        font-size: 2.6vw;
-      }
+// Hero Fade-in Animations
+@keyframes heroFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
 
-      //Mobile
-      @media screen and (max-width: 768px) {
-        font-size: 6vw;
-      }
-    }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroImageFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes heroCardFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
