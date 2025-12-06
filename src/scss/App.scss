@@ -93,20 +93,27 @@ html {
   scroll-padding-top: 2rem; // Offset for fixed elements if any
 }
 
+* {
+  box-sizing: border-box;
+}
+
 body,
-html,
-root {
+html {
   margin: 0;
   padding: 0;
   width: 100%;
   max-width: 100vw;
-  overflow-x: hidden;
-  display: flex;
-  flex-direction: column;
+  overflow-x: hidden !important;
   background-color: var(--color-background);
   color: var(--color-text);
   font-family: var(--font-family-base);
   transition: background-color var(--transition-base), color var(--transition-base);
+}
+
+#root {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden !important;
 }
 
 // Respect user's motion preferences
@@ -142,7 +149,6 @@ root {
   justify-content: center;
   transition: all var(--transition-base);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  position: relative;
   overflow: hidden;
 
   // Gradient background on hover
@@ -202,31 +208,10 @@ root {
   padding: 0;
   width: 100%;
   max-width: 100vw;
-  overflow-x: hidden;
+  overflow-x: hidden !important;
   box-sizing: border-box;
-
-  //Desktop
-  @media screen and (min-width: $breakpoint-desktop) {
-    padding: 0 0 0 2em;
-    margin-left: 15vw;
-    box-shadow: -20px 0px #000000;
-  }
-
-  // Tablet
-  @media screen and (min-width: $breakpoint-mobile) and (max-width: $breakpoint-desktop - 1px) {
-    padding: 0 0 0 1.5em;
-    margin-left: 10vw;
-    box-shadow: -15px 0px #000000;
-  }
-
-  // Mobile
-  @media screen and (max-width: $breakpoint-mobile - 1px) {
-    padding: 0;
-    margin-left: 0;
-    box-shadow: none;
-  }
-
-  background-color: $color-background;
+  background-color: var(--color-background);
+  min-height: 100vh;
 
   .section-title {
     font-size: var(--font-size-h2);
@@ -305,6 +290,7 @@ root {
   background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
   opacity: 0.1;
   z-index: 0;
+  overflow: hidden;
 
   &::before {
     content: '';
@@ -1047,8 +1033,8 @@ h2 {
     content: '';
     position: absolute;
     top: 0;
-    left: -10%;
-    width: 120%;
+    left: 0;
+    width: 100%;
     height: 100%;
     background: radial-gradient(ellipse at top, rgba(37, 99, 235, 0.03), transparent 70%);
     pointer-events: none;
