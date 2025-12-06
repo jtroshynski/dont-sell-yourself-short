@@ -211,9 +211,12 @@ html {
   padding: var(--spacing-2xl) var(--spacing-xl);
   overflow: hidden;
   background: linear-gradient(135deg, rgba(37, 99, 235, 0.15) 0%, rgba(124, 58, 237, 0.15) 50%, rgba(6, 182, 212, 0.15) 100%);
+  background-size: 200% 200%;
+  animation: gradientFloat 15s ease infinite;
 }
 [data-theme=dark] .hero-section {
   background: linear-gradient(135deg, rgba(37, 99, 235, 0.25) 0%, rgba(124, 58, 237, 0.25) 50%, rgba(6, 182, 212, 0.25) 100%);
+  background-size: 200% 200%;
 }
 @media screen and (max-width: 768px) {
   .hero-section {
@@ -222,7 +225,23 @@ html {
     padding-top: 4rem;
   }
 }
+@media (prefers-reduced-motion: reduce) {
+  .hero-section {
+    animation: none;
+  }
+}
 
+@keyframes gradientFloat {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
 .hero-background {
   position: absolute;
   top: 0;
