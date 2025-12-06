@@ -272,6 +272,17 @@ html {
   justify-content: center;
   padding: var(--spacing-2xl) var(--spacing-xl);
   overflow: hidden;
+  background: linear-gradient(135deg,
+      rgba(37, 99, 235, 0.15) 0%,
+      rgba(124, 58, 237, 0.15) 50%,
+      rgba(6, 182, 212, 0.15) 100%);
+
+  [data-theme="dark"] & {
+    background: linear-gradient(135deg,
+        rgba(37, 99, 235, 0.25) 0%,
+        rgba(124, 58, 237, 0.25) 50%,
+        rgba(6, 182, 212, 0.25) 100%);
+  }
 
   @media screen and (max-width: $breakpoint-mobile) {
     min-height: auto;
@@ -287,8 +298,8 @@ html {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
-  opacity: 0.08;
+  background: transparent;
+  opacity: 1;
   z-index: 0;
   overflow: hidden;
 
@@ -404,14 +415,13 @@ html {
   border-radius: 50%;
   object-fit: cover;
   border: 4px solid var(--color-primary);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+  box-shadow: none;
+  transition: transform var(--transition-base), border-color var(--transition-base);
   position: relative;
   z-index: 2;
 
   &:hover {
     transform: scale(1.05);
-    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15);
   }
 
   // Tablet
@@ -424,14 +434,6 @@ html {
   @media screen and (max-width: $breakpoint-mobile - 1px) {
     width: 150px;
     height: 150px;
-  }
-
-  [data-theme="dark"] & {
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-
-    &:hover {
-      box-shadow: 0 12px 48px rgba(0, 0, 0, 0.6);
-    }
   }
 }
 
