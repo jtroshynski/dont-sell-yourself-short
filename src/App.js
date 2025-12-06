@@ -1,6 +1,4 @@
 import { Component } from "react";
-import me from "./images/JeremyStylized.png";
-
 import "./css/App.css";
 
 // Import data from separate files
@@ -18,7 +16,15 @@ class App extends Component {
 
     this.state = {
       darkMode: savedTheme === 'dark',
-      scrollPosition: 0
+      scrollPosition: 0,
+      profileImageLoaded: false
+    };
+
+    // Preload critical image for better perceived performance
+    this.profileImage = new Image();
+    this.profileImage.src = require('./images/JeremyStylized.png');
+    this.profileImage.onload = () => {
+      this.setState({ profileImageLoaded: true });
     };
   }
 
@@ -27,7 +33,7 @@ class App extends Component {
     this.applyTheme();
 
     // Set up scroll listener for animations
-    window.addEventListener('scroll', this.handleScroll);
+    window.addEventListener('scroll', this.handleScroll, { passive: true });
 
     // Set up Intersection Observer for scroll-based animations
     this.setupIntersectionObserver();
@@ -40,6 +46,11 @@ class App extends Component {
     // Clean up Intersection Observer
     if (this.observer) {
       this.observer.disconnect();
+    }
+
+    // Cancel any pending animation frames
+    if (this.scrollRAF) {
+      cancelAnimationFrame(this.scrollRAF);
     }
   }
 
@@ -63,8 +74,15 @@ class App extends Component {
   }
 
   handleScroll = () => {
-    this.setState({
-      scrollPosition: window.scrollY
+    // Use requestAnimationFrame for better performance (60fps)
+    if (this.scrollRAF) {
+      cancelAnimationFrame(this.scrollRAF);
+    }
+
+    this.scrollRAF = requestAnimationFrame(() => {
+      this.setState({
+        scrollPosition: window.scrollY
+      });
     });
   }
 
@@ -86,7 +104,7 @@ class App extends Component {
         if (entry.isIntersecting) {
           // Add animation class when element enters viewport
           entry.target.classList.add('animate-in');
-          // Optionally unobserve after animation to improve performance
+          // Unobserve after animation to improve performance
           this.observer.unobserve(entry.target);
         }
       });
@@ -103,7 +121,7 @@ class App extends Component {
   }
 
   render() {
-    const { darkMode } = this.state;
+    const { darkMode, profileImageLoaded } = this.state;
 
     return (
       <div className="App">
@@ -117,7 +135,17 @@ class App extends Component {
         <section className="hero-section">
           <div className="hero-background"></div>
           <div className="hero-content">
-            <img src={me} className="hero-image" alt="Jeremy Troshynski" />
+            {profileImageLoaded ? (
+              <img
+                src={this.profileImage.src}
+                className="hero-image"
+                alt="Jeremy Troshynski"
+                loading="eager"
+                decoding="async"
+              />
+            ) : (
+              <div className="hero-image-placeholder" aria-label="Loading profile image" />
+            )}
             <div className="hero-intro-card">
               <h1 className="hero-name">Jeremy Troshynski</h1>
               <h2 className="hero-title">Full Stack Developer</h2>
@@ -250,7 +278,13 @@ class App extends Component {
                 rel="noopener noreferrer"
               >
                 <div className="contact-icon-wrapper">
-                  <img className="contact-icon" src={link.icon} alt="" />
+                  <img
+                    className="contact-icon"
+                    src={link.icon}
+                    alt=""
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </div>
                 <span className="contact-label">{link.platform}</span>
               </a>
