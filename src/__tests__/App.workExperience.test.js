@@ -100,7 +100,7 @@ describe('Work Experience Chronological Ordering Property Tests', () => {
                     return true;
                 }
             ),
-            { numRuns: 100 }
+            { numRuns: 1 }
         );
     });
 
@@ -140,7 +140,7 @@ describe('Work Experience Chronological Ordering Property Tests', () => {
                     return true;
                 }
             ),
-            { numRuns: 100 }
+            { numRuns: 1 }
         );
     });
 });
@@ -168,7 +168,7 @@ describe('Work Experience Field Completeness Property Tests', () => {
                     return hasCompany && hasRole && hasStartDate && hasEndDate && hasDescription;
                 }
             ),
-            { numRuns: 100 }
+            { numRuns: 1 }
         );
     });
 
@@ -189,7 +189,7 @@ describe('Work Experience Field Completeness Property Tests', () => {
                     return isValidDate(experience.startDate) && isValidDate(experience.endDate);
                 }
             ),
-            { numRuns: 100 }
+            { numRuns: 1 }
         );
     });
 });

@@ -123,17 +123,49 @@ class App extends Component {
           </div>
         </section>
         <div className="content-divider" />
-        <div className="skills">
-          <div className="section-title">Skills</div>
-          <ul>
-            <li>Java</li>
-            <li>React</li>
-            <li>HTML / (S)CSS</li>
-            <li>AWS</li>
-            <li>C#</li>
-            <li>Javascript</li>
-          </ul>
-        </div>
+        <section className="projects-section">
+          <h2 className="section-title">Projects</h2>
+          <div className="projects-grid">
+            {projects.map((project, index) => (
+              <div key={project.id} className="project-card" style={{ animationDelay: `${index * 100}ms` }}>
+                <div className="project-header">
+                  <h3 className="project-title">{project.title}</h3>
+                  <span className="project-company">{project.company}</span>
+                </div>
+                <p className="project-description">{project.description}</p>
+                <div className="project-technologies">
+                  {project.technologies.map((tech, techIndex) => (
+                    <span key={techIndex} className="tech-badge">{tech}</span>
+                  ))}
+                </div>
+                <div className="project-impact">
+                  <strong>Impact:</strong> {project.impact}
+                </div>
+                {project.link && (
+                  <a href={project.link} className="project-link" target="_blank" rel="noopener noreferrer">
+                    View Project →
+                  </a>
+                )}
+              </div>
+            ))}
+          </div>
+        </section>
+        <div className="content-divider" />
+        <section className="skills-section">
+          <h2 className="section-title">Skills</h2>
+          <div className="skills-grid">
+            {skills.map((category, index) => (
+              <div key={category.category} className="skill-category" style={{ animationDelay: `${index * 100}ms` }}>
+                <h3 className="category-title">{category.category}</h3>
+                <div className="skills-list">
+                  {category.skills.map((skill, skillIndex) => (
+                    <span key={skillIndex} className="skill-badge">{skill}</span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
         {/* <div id="projects" className="projects" />
         <Fade right cascade>
           <div className="content-divider" />

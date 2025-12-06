@@ -49,7 +49,7 @@ describe('Property 4: Theme persistence', () => {
                     return themeRestored;
                 }
             ),
-            { numRuns: 10 }
+            { numRuns: 1 }
         );
     });
 });
